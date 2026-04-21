@@ -64,13 +64,24 @@
   </section>
 
   <main class="project-list-wrap">
+    <div class="grid-toolbar" role="toolbar" aria-label="Grid view controls">
+      <button type="button" class="view-tab"><span class="ico">▦</span> Grid view</button>
+      <span class="sep"></span>
+      <button type="button" class="tool-btn"><span class="ico">👁</span> Hide fields</button>
+      <button type="button" class="tool-btn"><span class="ico">⏷</span> Filter</button>
+      <button type="button" class="tool-btn"><span class="ico">⫴</span> Group</button>
+      <button type="button" class="tool-btn"><span class="ico">↕</span> Sort</button>
+      <button type="button" class="tool-btn"><span class="ico">◐</span> Color</button>
+      <span class="spacer"></span>
+      <button type="button" class="tool-btn"><span class="ico">↗</span> Share view</button>
+    </div>
     <div class="project-list-head">
-      <span>№</span>
-      <span>Commission</span>
-      <span>Stage</span>
-      <span>Fee</span>
-      <span>Filed by</span>
-      <span>Touched</span>
+      <span><span class="col-ico">#</span></span>
+      <span><span class="col-ico">Aa</span>Commission</span>
+      <span><span class="col-ico">◉</span>Stage</span>
+      <span><span class="col-ico">$</span>Fee</span>
+      <span><span class="col-ico">👤</span>Filed by</span>
+      <span><span class="col-ico">⏱</span>Touched</span>
     </div>
     <div id="projectList" class="project-list"></div>
     <div id="emptyState" class="empty-state" hidden>
