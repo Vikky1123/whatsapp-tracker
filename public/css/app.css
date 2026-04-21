@@ -3,43 +3,43 @@
    ============================================================ */
 
 :root {
-  /* Surfaces */
+  /* Surfaces — from Airtable's own tokens */
   --paper:       #FFFFFF;
-  --paper-warm:  #FBF9F5;       /* subtle warmth */
-  --paper-soft:  #F5F2EB;       /* hover rows */
-  --paper-3:     #EFEAE0;
+  --paper-warm:  #F2F4F7;       /* Airtable's accent bg */
+  --paper-soft:  #F7F8FA;
+  --paper-3:     #E0E2E6;
 
   /* Ink */
   --ink:         #181D26;       /* primary text */
-  --ink-82:      rgba(7, 12, 20, 0.82);
-  --ink-69:      rgba(4, 14, 32, 0.69);
-  --ink-52:      rgba(4, 14, 32, 0.52);
-  --ink-35:      rgba(4, 14, 32, 0.35);
+  --ink-82:      #40454D;
+  --ink-69:      #535965;
+  --ink-52:      #6B707B;
+  --ink-35:      #9297A0;
 
   /* Borders */
-  --border:       #E8E3D8;
-  --border-soft:  #F0ECE3;
-  --border-strong:#C9C1AF;
+  --border:       #E0E2E6;
+  --border-soft:  #EAEDF1;
+  --border-strong:#C0C6D1;
 
-  /* Primary (used sparingly, like Airtable) */
-  --accent-blue: #1B61C9;       /* link blue */
-  --accent-blue-hover: #174FAB;
-  --black-btn:   #0F1419;
-  --black-btn-hover: #2A2F3A;
+  /* Primary — Airtable blue */
+  --accent-blue:        #1B61C9;
+  --accent-blue-hover:  #254FAD;
+  --accent-blue-bright: #0768F8;
+  --accent-blue-active: #1A3866;
 
-  /* Status pill palette — saturated like Airtable's "Leader / Challenger / Emerging" tags */
-  --tag-gray-bg:    #E2DED4;  --tag-gray-fg:    #3D3831;
-  --tag-blue-bg:    #4C8FD1;  --tag-blue-fg:    #FFFFFF;
-  --tag-purple-bg:  #9B7FD1;  --tag-purple-fg:  #FFFFFF;
-  --tag-teal-bg:    #41A68A;  --tag-teal-fg:    #FFFFFF;
-  --tag-yellow-bg:  #E3B13C;  --tag-yellow-fg:  #FFFFFF;
-  --tag-orange-bg:  #E08641;  --tag-orange-fg:  #FFFFFF;
-  --tag-red-bg:     #D85C4B;  --tag-red-fg:     #FFFFFF;
-  --tag-green-bg:   #5DAE67;  --tag-green-fg:   #FFFFFF;
-  --tag-darkgreen-bg:#3A7F3D; --tag-darkgreen-fg:#FFFFFF;
+  /* Status pill palette — Airtable's REAL promo/tag colors: pastel bg + saturated text */
+  --tag-gray-bg:    #F2F4F7;  --tag-gray-fg:    #535965;
+  --tag-blue-bg:    #F0F6FF;  --tag-blue-fg:    #1B61C9;
+  --tag-purple-bg:  #F7F2FF;  --tag-purple-fg:  #6D38C2;
+  --tag-teal-bg:    #EDF7F5;  --tag-teal-fg:    #188080;
+  --tag-yellow-bg:  #FAF5E8;  --tag-yellow-fg:  #BA8420;
+  --tag-orange-bg:  #FFF4ED;  --tag-orange-fg:  #9E491B;
+  --tag-red-bg:     #FAF2F4;  --tag-red-fg:     #C2214C;
+  --tag-green-bg:   #EDF7EE;  --tag-green-fg:   #188021;
+  --tag-darkgreen-bg:#D6EDC9; --tag-darkgreen-fg:#0F5A14;
 
   /* Base accent — the green Airtable uses on the left-border of a table card */
-  --base-accent:   #A7D58B;
+  --base-accent:   #71C66B;
 
   /* Spacing */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
@@ -52,13 +52,27 @@
   --gutter:    clamp(16px, 3.5vw, 40px);
   --page-max:  1280px;
   --radius-sm: 6px;
-  --radius:    10px;
-  --radius-lg: 14px;
-  --radius-pill: 999px;
+  --radius:    8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
 
-  --shadow-sm: 0 1px 2px rgba(15, 20, 25, 0.04);
-  --shadow:    0 1px 3px rgba(15, 20, 25, 0.05), 0 4px 12px rgba(15, 20, 25, 0.04);
-  --shadow-lg: 0 6px 20px rgba(15, 20, 25, 0.10), 0 2px 6px rgba(15, 20, 25, 0.06);
+  /* Airtable-style subtle layered shadows */
+  --shadow-sm: 0px 0px 1px rgba(0,0,0,0.32), 0px 0px 2px rgba(0,0,0,0.08), 0px 1px 3px rgba(0,0,0,0.08);
+  --shadow:    0px 0px 1px rgba(0,0,0,0.32), 0px 0px 3px rgba(0,0,0,0.11), 0px 1px 4px rgba(0,0,0,0.12);
+  --shadow-lg: 0px 4px 16px rgba(0,0,0,0.10), 0px 1px 4px rgba(0,0,0,0.08);
+  --shadow-primary: 0px 0px 1px rgba(0,0,0,0.32), 0px 0px 2px rgba(0,0,0,0.08), 0px 1px 3px rgba(45,127,249,0.28), inset 0px 0px 0px 0.5px rgba(0,0,0,0.06);
+}
+
+  /* Spacing */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+  /* Type */
+  --display: 'Host Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --body:    'Host Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+
+  --gutter:    clamp(16px, 3.5vw, 40px);
+  --page-max:  1280px;
 }
 
 * { box-sizing: border-box; }
@@ -145,7 +159,7 @@ hr {
   place-items: center;
   width: 28px;
   height: 28px;
-  background: var(--black-btn);
+  background: var(--accent-blue);
   color: var(--paper);
   font-weight: 600;
   font-size: 14px;
@@ -191,33 +205,44 @@ button {
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
-  border: 1px solid var(--border);
+  border: 0;
   background: var(--paper);
   color: var(--ink);
   padding: 9px 16px;
   cursor: pointer;
   border-radius: var(--radius);
-  transition: background 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
-  box-shadow: var(--shadow-sm);
+  transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.32), 0px 0px 2px rgba(0,0,0,0.08), 0px 1px 3px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(1,20,53,0.12);
 }
 .btn:hover,
-.btn-ghost:hover { background: var(--paper-warm); border-color: var(--border-strong); }
+.btn-ghost:hover {
+  background: var(--paper);
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.32), 0px 0px 3px rgba(0,0,0,0.11), 0px 1px 4px rgba(0,0,0,0.12), inset 0 0 0 1px #458fff;
+  color: var(--accent-blue-hover);
+}
 
 .btn-primary {
-  background: var(--black-btn);
-  border-color: var(--black-btn);
+  background: var(--accent-blue);
   color: var(--paper);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-primary);
 }
-.btn-primary:hover:not(:disabled) { background: var(--black-btn-hover); border-color: var(--black-btn-hover); }
-.btn-primary:disabled { background: var(--ink-35); border-color: var(--ink-35); cursor: not-allowed; box-shadow: none; }
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-blue-hover);
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.32), 0px 0px 3px rgba(0,0,0,0.11), 0px 1px 4px rgba(45,127,249,0.48), inset 0px 0px 0px 0.5px rgba(0,0,0,0.12);
+}
+.btn-primary:disabled {
+  background: var(--paper-3);
+  color: var(--ink-82);
+  cursor: not-allowed;
+  box-shadow: inset 0 0 0 1px var(--paper-3);
+}
 
 .btn-danger {
-  border-color: var(--tag-red-fg);
-  color: var(--tag-red-fg);
   background: var(--paper);
+  color: var(--tag-red-fg);
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.32), 0px 1px 3px rgba(0,0,0,0.08), inset 0 0 0 1px var(--tag-red-fg);
 }
-.btn-danger:hover:not(:disabled) { background: var(--tag-red-fg); color: var(--paper); border-color: var(--tag-red-fg); }
+.btn-danger:hover:not(:disabled) { background: var(--tag-red-fg); color: var(--paper); }
 .btn-danger:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .btn-icon {
@@ -236,7 +261,7 @@ button {
   border-radius: var(--radius-sm);
   box-shadow: none;
 }
-.btn-tiny-danger:hover { background: rgba(142, 42, 31, 0.08); border: 0; }
+.btn-tiny-danger:hover { background: var(--tag-red-bg); box-shadow: none; color: var(--tag-red-fg); }
 
 /* ============================================================
    INPUTS
@@ -307,8 +332,8 @@ label input, label textarea, label select {
 }
 .login-art .wordmark em {
   font-style: normal;
-  color: var(--tag-orange-fg);
-  background: var(--tag-orange-bg);
+  color: var(--accent-blue);
+  background: var(--tag-blue-bg);
   padding: 0 0.2em;
   border-radius: var(--radius-sm);
 }
@@ -369,8 +394,8 @@ label input, label textarea, label select {
 }
 .dash-hero h1 em {
   font-style: normal;
-  color: var(--tag-orange-fg);
-  background: var(--tag-orange-bg);
+  color: var(--accent-blue);
+  background: var(--tag-blue-bg);
   padding: 0 0.15em;
   border-radius: var(--radius-sm);
 }
@@ -443,18 +468,18 @@ label input, label textarea, label select {
   font-weight: 500;
   color: var(--ink-82);
   background: var(--paper);
-  border: 1px solid var(--border);
   padding: 6px 12px;
   cursor: pointer;
   border-radius: var(--radius-pill);
   transition: all 140ms ease;
-  box-shadow: none;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--border);
 }
-.chip:hover { background: var(--paper-warm); border-color: var(--border-strong); color: var(--ink); }
+.chip:hover { background: var(--paper); box-shadow: inset 0 0 0 1px var(--border-strong); color: var(--ink); }
 .chip-active {
-  background: var(--ink);
+  background: var(--accent-blue);
   color: var(--paper);
-  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--accent-blue);
 }
 
 .filter-right { display: flex; align-items: center; gap: var(--s-4); }
