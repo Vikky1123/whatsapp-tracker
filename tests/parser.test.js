@@ -83,11 +83,14 @@ test('Multi-line message: continuation lines append with newline', () => {
   assert.equal(messages[1].text, 'another message');
 });
 
-test('Continuation with no prior message goes to unparseable', () => {
+test('Lines with no timestamps become a single raw-paste message (fallback)', () => {
   const raw = 'orphan line with no header\nanother orphan';
-  const { messages, unparseable } = parseWhatsApp(raw);
-  assert.equal(messages.length, 0);
-  assert.equal(unparseable.length, 2);
+  const { messages, unparseable, stats } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, '(pasted)');
+  assert.equal(messages[0].text, 'orphan line with no header\nanother orphan');
+  assert.equal(unparseable.length, 0);
+  assert.equal(stats.rawFallback, true);
 });
 
 // System messages + media
@@ -166,4 +169,52 @@ test('Stats contain senders, date range, counts', () => {
   assert.deepEqual(stats.senders.sort(), ['A', 'B']);
   assert.match(stats.dateRange.from, /2026-04-20T14:14/);
   assert.match(stats.dateRange.to, /2026-04-21T13:00/);
+});
+
+// Fallback: raw paste without WhatsApp metadata
+test('Raw paste (no timestamps) falls back to single message', () => {
+  const raw = 'Hey can you update the logo size?\nAlso change the color.';
+  const { messages, unparseable, stats } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, '(pasted)');
+  assert.match(messages[0].text, /logo size/);
+  assert.match(messages[0].text, /change the color/);
+  assert.equal(unparseable.length, 0);
+  assert.equal(stats.rawFallback, true);
+});
+
+test('Single-line raw paste also falls back', () => {
+  const { messages, stats } = parseWhatsApp('Single unformatted message from WhatsApp.');
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, '(pasted)');
+  assert.equal(messages[0].text, 'Single unformatted message from WhatsApp.');
+  assert.equal(stats.rawFallback, true);
+});
+
+test('Fallback uses provided defaultSender', () => {
+  const { messages } = parseWhatsApp('hello', { defaultSender: 'Tomi' });
+  assert.equal(messages[0].sender, 'Tomi');
+});
+
+test('Fallback does NOT trigger when any line parses', () => {
+  const raw = ['some stray line', '[4/20/26, 2:14 PM] A: proper'].join('\n');
+  const { messages, stats } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, 'A');
+  assert.equal(stats.rawFallback, false);
+});
+
+test('iPhone format with seconds still parses', () => {
+  const raw = '[4/20/26, 2:14:05 PM] Tomi: hello';
+  const { messages } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, 'Tomi');
+  assert.match(messages[0].timestamp, /T14:14/);
+});
+
+test('iPhone format with "at" separator', () => {
+  const raw = '[4/20/26 at 2:14 PM] Tomi: hello';
+  const { messages } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, 'Tomi');
 });

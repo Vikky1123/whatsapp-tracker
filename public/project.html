@@ -104,7 +104,8 @@
 
   <dialog id="pasteDialog" class="dialog">
     <h2>Paste from WhatsApp</h2>
-    <p class="kicker">Paste the chunk · we'll parse it</p>
+    <p class="kicker">Paste anything · we'll figure it out</p>
+    <p style="color:var(--ink-60);font-size:12px;line-height:1.5;margin:0 0 var(--s-4);font-family:var(--mono);">Tip · for multiple messages with sender + time, long-press a message in WhatsApp, tap the select icon, tap more messages, then tap <strong style="color:var(--ink);">Copy</strong>. A single copied message is fine too — we'll file it as one entry.</p>
     <textarea id="pasteRaw" placeholder="Paste here…"></textarea>
     <button id="previewBtn" type="button" class="btn-primary">Preview parse</button>
     <div id="pastePreview" class="paste-preview" hidden></div>

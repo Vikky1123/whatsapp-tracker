@@ -208,16 +208,24 @@ function bindPasteFlow() {
 
 function renderParsePreview(el, parsed) {
   el.replaceChildren();
-  const p = document.createElement('p');
-  setText(p, `Parsed ${parsed.stats.messageCount} messages.`);
-  el.appendChild(p);
 
-  if (parsed.stats.senders.length > 0) {
+  const headline = document.createElement('p');
+  if (parsed.stats.rawFallback) {
+    const em = document.createElement('strong');
+    em.textContent = 'No WhatsApp timestamps found.';
+    headline.appendChild(em);
+    headline.appendChild(document.createTextNode(' We\u2019ll file this as a single message under "(pasted)". Edit the sender after if you like.'));
+  } else {
+    setText(headline, `Parsed ${parsed.stats.messageCount} messages.`);
+  }
+  el.appendChild(headline);
+
+  if (!parsed.stats.rawFallback && parsed.stats.senders.length > 0) {
     const pp = document.createElement('p');
     setText(pp, `Senders: ${parsed.stats.senders.join(', ')}`);
     el.appendChild(pp);
   }
-  if (parsed.stats.dateRange) {
+  if (!parsed.stats.rawFallback && parsed.stats.dateRange) {
     const pp = document.createElement('p');
     setText(pp, `Dates: ${formatDate(parsed.stats.dateRange.from)} -> ${formatDate(parsed.stats.dateRange.to)}`);
     el.appendChild(pp);
