@@ -1,0 +1,23 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — BORDER & RADIUS TOKENS
+   Source: stuxen.webflow.io
+   ============================================================================= */
+
+:root {
+  /* ── Border Radius Scale ─────────────────────────────────────────────────── */
+  --_radius---radius-xs:  12px;   /* Subtle rounding — box-wrapper, small cards */
+  --_radius---radius-sm:  16px;   /* Standard cards, input fields */
+  --_radius---radius-md:  20px;   /* Medium cards, image containers */
+  --_radius---radius-xl:  62px;   /* Pill shape — primary buttons, badges */
+  --radius-full:          50%;    /* Perfect circle — avatars, icons */
+  --radius-pill:          48px;   /* Sub-title badges */
+
+  /* ── Border Widths ───────────────────────────────────────────────────────── */
+  --border-width-default: 1px;
+
+  /* ── Border Presets ──────────────────────────────────────────────────────── */
+  /* Usage: border: var(--border-subtle); */
+  --border-subtle:        1px solid var(--dark-12);
+  --border-primary:       1px solid var(--primary-clr);
+  --border-dashed:        1px dashed var(--dark-12);     /* Dashed borders — decorative separators */
+}

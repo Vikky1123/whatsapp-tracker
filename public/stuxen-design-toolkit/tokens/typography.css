@@ -1,0 +1,174 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — TYPOGRAPHY TOKENS
+   Source: stuxen.webflow.io
+
+   Font Stack: Poppins (primary), Inter, Roboto, Roboto Mono (code)
+   Google Fonts URL:
+     https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap
+   ============================================================================= */
+
+:root {
+  /* ── Font Families ────────────────────────────────────────────────────────── */
+  --_font-typography---font-family--primary-font: Poppins, sans-serif;
+  --font-family-secondary: Inter, sans-serif;
+  --font-family-mono:      'Roboto Mono', monospace;
+
+  /* ── Font Weights ─────────────────────────────────────────────────────────── */
+  --_font-typography---font-weight--font-weight-light:      300;
+  --_font-typography---font-weight--font-weight-regular:    400;
+  --_font-typography---font-weight--font-weight-medium:     500;
+  --_font-typography---font-weight--font-weight-semi-bold:  600;
+  --_font-typography---font-weight--font-weight-bold:       700;
+  --_font-typography---font-weight--font-weight-extra-bold: 800;
+
+  /* ── Font Sizes: Headings ─────────────────────────────────────────────────── */
+  --_font-sizing---heading--heading-xxl: 56px;   /* H1 — main hero, page titles */
+  --_font-sizing---heading--heading-xl:  52px;   /* Large section headings */
+  --_font-sizing---heading--heading-lg:  48px;   /* H2 — section titles */
+  --_font-sizing---heading--heading-md:  36px;   /* H3 — subsection titles */
+  --_font-sizing---heading--heading-sm:  32px;   /* H4 — card/component titles */
+  --_font-sizing---heading--heading-xs:  28px;   /* H5 — smaller headings */
+  --_font-sizing---heading--heading-xxs: 22px;   /* H6 — smallest heading level */
+
+  /* ── Font Sizes: Body ─────────────────────────────────────────────────────── */
+  --_font-sizing---body--display-lg:  102px;     /* Giant display text (services) */
+  --_font-sizing---body--display-sm:  40px;      /* Medium display text */
+  --_font-sizing---body--text-xl:     24px;      /* Large body text */
+  --_font-sizing---body--text-lg:     20px;      /* Medium-large body text */
+  --_font-sizing---body--text-md:     18px;      /* Medium body text */
+  --_font-sizing---body--text-sm:     16px;      /* Default body text */
+  --_font-sizing---body--text-xs:     14px;      /* Small/caption text */
+
+  /* ── Line Heights ─────────────────────────────────────────────────────────── */
+  --_font-typography---line-height--line-height-none:        100%;
+  --_font-typography---line-height--line-height-tight:       114.286%;
+  --_font-typography---line-height--line-height-tight-md:    117.857%;
+  --_font-typography---line-height--line-height-tight-lg:    119.231%;
+  --_font-typography---line-height--line-height-heading:     120.833%;
+  --_font-typography---line-height--line-height-sm:          127.778%;
+  --_font-typography---line-height--line-height-body-tight:  128.571%;
+  --_font-typography---line-height--line-height-body:        131.25%;
+  --_font-typography---line-height--line-height-md:          133.333%;
+  --_font-typography---line-height--line-height-md-relaxed:  135.714%;
+  --_font-typography---line-height--line-height-lg:          140%;
+  --_font-typography---line-height--line-height-lg-relaxed:  144.444%;
+  --_font-typography---line-height--line-height-relaxed:     145.455%;
+  --_font-typography---line-height--line-height-normal:      150%;
+  --_font-typography---line-height--line-height-relaxed-md:  155.556%;
+  --_font-typography---line-height--line-height-comfortable: 157.143%;
+  --_font-typography---line-height--line-height-relaxed-lg:  166.667%;
+  --_font-typography---line-height--line-height-loose:       171.429%;
+
+  /* ── Letter Spacing ───────────────────────────────────────────────────────── */
+  --_letter-spacing---ls-xxxl:     -4.08px;  /* Giant display (102px) */
+  --_letter-spacing---ls-xxl:      -2.24px;  /* H1 (56px) */
+  --_letter-spacing---ls-xl:       -1.92px;  /* H2 (48px) */
+  --_letter-spacing---ls-widest:   -1.6px;   /* Display-sm (40px) */
+  --_letter-spacing---ls-wider:    -1.44px;  /* H3 (36px) */
+  --_letter-spacing---ls-wide:     -1.28px;  /* H4 (32px) */
+  --_letter-spacing---ls-md-wide:  -1.12px;  /* H5 (28px) */
+  --_letter-spacing---ls-md:       -0.96px;  /* Large headings */
+  --_letter-spacing---ls-md-tight: -0.88px;  /* H6 (22px) */
+  --_letter-spacing---ls-compact:  -0.8px;   /* Compact headings */
+  --_letter-spacing---ls-tight:    -0.36px;  /* Text-md (18px) */
+  --_letter-spacing---ls-tighter:  -0.32px;  /* Default body (16px) */
+  --_letter-spacing---ls-tightest: -0.28px;  /* Small text (14px) */
+}
+
+/* =============================================================================
+   HEADING PRESETS
+
+   Apply these to headings for instant Stuxen typography.
+   ============================================================================= */
+
+.stuxen-h1 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-xxl);
+  line-height: var(--_font-typography---line-height--line-height-tight-md);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-xxl);
+  color: var(--secondary-clr);
+}
+
+.stuxen-h2 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-lg);
+  line-height: var(--_font-typography---line-height--line-height-heading);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-xl);
+}
+
+.stuxen-h3 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-md);
+  line-height: var(--_font-typography---line-height--line-height-sm);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-wider);
+}
+
+.stuxen-h4 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-sm);
+  line-height: var(--_font-typography---line-height--line-height-body);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-wide);
+}
+
+.stuxen-h5 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-xs);
+  line-height: var(--_font-typography---line-height--line-height-md-relaxed);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-md-wide);
+}
+
+.stuxen-h6 {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---heading--heading-xxs);
+  line-height: var(--_font-typography---line-height--line-height-relaxed);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-md-tight);
+}
+
+/* Body text presets */
+.stuxen-body {
+  font-family: var(--_font-typography---font-family--primary-font);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  font-weight: var(--_font-typography---font-weight--font-weight-regular);
+  letter-spacing: var(--_letter-spacing---ls-tighter);
+  color: var(--dark-70);
+}
+
+.stuxen-body-lg {
+  font-size: var(--_font-sizing---body--text-lg);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+}
+
+.stuxen-body-sm {
+  font-size: var(--_font-sizing---body--text-xs);
+  line-height: var(--_font-typography---line-height--line-height-loose);
+  letter-spacing: var(--_letter-spacing---ls-tightest);
+}
+
+.stuxen-display-lg {
+  font-size: var(--_font-sizing---body--display-lg);
+  line-height: var(--_font-typography---line-height--line-height-tight-md);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  letter-spacing: var(--_letter-spacing---ls-xxxl);
+  text-transform: uppercase;
+}
+
+.stuxen-display-sm {
+  font-size: var(--_font-sizing---body--display-sm);
+  line-height: var(--_font-typography---line-height--line-height-none);
+  letter-spacing: var(--_letter-spacing---ls-widest);
+}
+
+/* Sub-title badge text */
+.stuxen-subtitle {
+  font-family: var(--_font-typography---font-family--primary-font);
+  line-height: var(--_font-typography---line-height--line-height-comfortable);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  text-transform: uppercase;
+}

@@ -1,0 +1,371 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — CARD COMPONENTS
+   Source: stuxen.webflow.io
+
+   Card types:
+   1. About Card — icon + counter + description
+   2. Project Card — thumbnail + overlay + categories + title
+   3. Blog Card — thumbnail + category + title + author
+   4. Testimonial Card — quote + rating + author info
+   5. Service Item — number + title + hover image reveal
+   ============================================================================= */
+
+/* ── ABOUT CARD ────────────────────────────────────────────────────────────── */
+/*
+  <div class="about-card">
+    <div class="about-icon-wrap">
+      <img class="about-icon" src="icons/about/about-icon-0.svg">
+    </div>
+    <div class="about-counter-wrapper">
+      <div class="about-counter-number-wrapper">
+        <div class="about-counter-number">850</div>
+        <div class="about-counter-symbol">+</div>
+      </div>
+      <div class="regular-text">Clients Worldwide</div>
+    </div>
+  </div>
+*/
+
+.about-card {
+  background-color: var(--white);
+  border-radius: var(--_radius---radius-md);
+  max-width: 285px;
+  padding: 40px 34px;
+}
+
+.about-card.v1 {
+  background-color: var(--white-smoke);
+  max-width: 100%;
+  padding: 40px var(--_spacing---padding--pd-md);
+}
+
+.about-icon-wrap {
+  background-color: var(--primary-clr);
+  border-radius: var(--_radius---radius-sm);
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  display: flex;
+}
+
+.about-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.about-counter-number-wrapper {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+}
+
+.about-card-content {
+  margin-top: 100px;
+  border-top: 1px solid var(--dark-12);
+  padding-top: var(--_spacing---padding--pd-xs);
+}
+
+/* ── PROJECT CARD ──────────────────────────────────────────────────────────── */
+/*
+  <div class="project-v1-card">
+    <a class="project-v1-img-link" href="#">
+      <div class="project-v1-img-top-wrap">
+        <div class="project-v1-categories-wrap">
+          <div class="project-v1-categories">Branding</div>
+          <div class="project-v1-categories-dot"></div>
+          <div class="project-v1-categories">Design</div>
+        </div>
+        <div class="project-v1-arrow-wrap">
+          <img src="icons/projects/project-arrow.svg">
+        </div>
+      </div>
+      <img class="project-v1-img" src="images/projects/project-thumbnail-01.avif">
+      <div class="project-v1-img-overly"></div>
+    </a>
+    <a class="project-v1-title-link" href="#">
+      <div class="project-v1-title-bg"></div>
+      <h4 class="project-v1-title">Project Title</h4>
+      <div class="project-v1-date">Jan 2025</div>
+    </a>
+  </div>
+*/
+
+.project-v1-card {
+  width: 100%;
+}
+
+.project-v1-img-link {
+  z-index: 1;
+  border-radius: var(--_radius---radius-md);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.project-v1-img {
+  width: 100%;
+  display: block;
+}
+
+.project-v1-img-top-wrap {
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 32px 32px auto;
+}
+
+.project-v1-arrow-wrap {
+  background-color: var(--white);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  display: flex;
+}
+
+.project-v1-categories {
+  color: var(--white);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  letter-spacing: var(--_letter-spacing---ls-tighter);
+  text-transform: uppercase;
+}
+
+.project-v1-categories-wrap {
+  z-index: 1;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: auto auto 18px 32px;
+}
+
+.project-v1-categories-dot {
+  background-color: var(--white);
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+
+.project-v1-img-overly {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background-color: #21212199;
+  position: absolute;
+  inset: 0%;
+}
+
+.project-v1-title-link {
+  z-index: 1;
+  padding: var(--_spacing---padding--pd-xs);
+  border-radius: var(--_radius---radius-sm);
+  background-color: var(--white);
+  color: var(--secondary-clr);
+  font-size: var(--_font-sizing---body--text-md);
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-v1-title {
+  font-size: var(--_font-sizing---heading--heading-xs);
+  line-height: var(--_font-typography---line-height--line-height-md-relaxed);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-md-wide);
+  margin: 0;
+}
+
+.project-v1-title-bg {
+  background-color: var(--primary-clr);
+  border-radius: var(--_radius---radius-sm);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+  transform: translateY(100%);
+  /* Animated on hover — see interactions/hover-effects.css */
+}
+
+.project-v1-date {
+  color: var(--dark-70);
+}
+
+/* ── TESTIMONIAL CARD ──────────────────────────────────────────────────────── */
+/*
+  V1: Tab-based layout with image + quote
+  V2: Grid card layout with quote icons
+*/
+
+.testimonials-tabs {
+  grid-column-gap: 32px;
+  display: flex;
+}
+
+.testimonials-tabs-link {
+  background-color: var(--transparent);
+  border-radius: 0;
+  padding: 0;
+}
+
+.testimonials-tabs-link.w--current {
+  background-color: var(--transparent);
+}
+
+.testimonials-author-img {
+  border: 1px solid var(--primary-clr);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.testimonials-v1-author-name {
+  color: var(--secondary-clr);
+  font-size: var(--_font-sizing---body--text-md);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+}
+
+.testimonials-v1-author-bio {
+  color: var(--dark-70);
+  font-size: var(--_font-sizing---body--text-xs);
+}
+
+.testimonials-v1-details {
+  font-size: var(--_font-sizing---heading--heading-md);
+  line-height: var(--_font-typography---line-height--line-height-lg);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  letter-spacing: var(--_letter-spacing---ls-wider);
+  color: var(--secondary-clr);
+}
+
+.testimonials-details-bottom {
+  border-top: 1px solid var(--dark-12);
+  padding-top: var(--_spacing---padding--pd-xs);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* V2 Card Grid */
+.testimonials-card-grid {
+  gap: var(--_spacing---space-xs);
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+}
+
+.testimonials-card {
+  border: 1px solid var(--dark-12);
+  border-radius: var(--_radius---radius-md);
+  padding: var(--_spacing---padding--pd-md) var(--_spacing---padding--pd-xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonials-quote-wrap {
+  gap: var(--_spacing---space-md);
+  margin-bottom: var(--_spacing---space-3xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonials-author-name {
+  color: var(--secondary-clr);
+  font-size: var(--_font-sizing---body--text-md);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+}
+
+.testimonials-author-bio {
+  color: var(--dark-70);
+  font-size: var(--_font-sizing---body--text-xs);
+}
+
+/* ── BLOG CARD ─────────────────────────────────────────────────────────────── */
+
+.blog-card-top {
+  border-radius: var(--_radius---radius-md);
+  overflow: hidden;
+}
+
+.blog-card-title {
+  font-size: var(--_font-sizing---heading--heading-xxs);
+  line-height: var(--_font-typography---line-height--line-height-relaxed);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-md-tight);
+  color: var(--secondary-clr);
+  text-decoration: none;
+}
+
+.blog-card-title:hover {
+  color: var(--primary-clr);
+}
+
+/* ── SERVICE ITEM ──────────────────────────────────────────────────────────── */
+
+.services-v1-wrap {
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.services-v1-left {
+  gap: var(--_spacing---space-md-lg);
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.services-v1-number {
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  letter-spacing: var(--_letter-spacing---ls-wide);
+  margin-top: 25px;
+  font-style: italic;
+}
+
+.services-v1-title {
+  font-size: var(--_font-sizing---body--display-lg);
+  line-height: var(--_font-typography---line-height--line-height-tight-md);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  letter-spacing: var(--_letter-spacing---ls-xxxl);
+  text-transform: uppercase;
+}
+
+.services-v1-divider {
+  background-color: var(--dark-12);
+  width: 100%;
+  height: 1px;
+}
+
+@media screen and (max-width: 991px) {
+  .about-card {
+    max-width: 100%;
+    padding: 30px;
+  }
+  .about-icon-wrap { width: 60px; height: 60px; }
+  .about-icon { width: 28px; height: 28px; }
+  .about-card-content { margin-top: 80px; }
+  .testimonials-card-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media screen and (max-width: 767px) {
+  .project-v1-arrow-wrap { width: 50px; height: 50px; }
+  .testimonials-card-grid { grid-template-columns: 1fr; }
+}
+
+@media screen and (max-width: 479px) {
+  .about-card { padding: 20px; }
+  .about-icon-wrap { width: 48px; height: 48px; }
+  .about-icon { width: 20px; height: 20px; }
+  .about-card-content { margin-top: 30px; }
+  .project-v1-arrow-wrap { width: 40px; height: 40px; }
+}

@@ -1,0 +1,215 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — RESPONSIVE BREAKPOINTS & TOKEN OVERRIDES
+   Source: stuxen.webflow.io
+
+   Breakpoint system:
+     >= 1440px  → Large desktop (enhanced spacing)
+     <= 991px   → Tablet
+     <= 767px   → Mobile landscape
+     <= 479px   → Mobile portrait
+
+   The Stuxen design system adjusts ALL tokens per breakpoint — not just layouts.
+   This is what makes it feel premium: typography, spacing, and letter-spacing
+   all scale down proportionally.
+   ============================================================================= */
+
+/* ── LARGE DESKTOP (>= 1440px) ─────────────────────────────────────────────── */
+@media screen and (min-width: 1440px) {
+  :root {
+    /* No token overrides — base tokens are already optimized for ~1296px container.
+       Layout-specific widths widen here (see layouts/containers.css). */
+  }
+}
+
+/* ── TABLET (<= 991px) ─────────────────────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  :root {
+    /* Font sizes scale down */
+    --_font-sizing---heading--heading-xxl: 50px;
+    --_font-sizing---heading--heading-xl:  40px;
+    --_font-sizing---heading--heading-lg:  40px;
+    --_font-sizing---heading--heading-md:  30px;
+    --_font-sizing---heading--heading-sm:  28px;
+    --_font-sizing---heading--heading-xs:  26px;
+    --_font-sizing---heading--heading-xxs: 20px;
+    --_font-sizing---body--display-lg:     80px;
+    --_font-sizing---body--display-sm:     32px;
+    --_font-sizing---body--text-xl:        22px;
+    --_font-sizing---body--text-lg:        20px;
+    --_font-sizing---body--text-md:        18px;
+    --_font-sizing---body--text-sm:        16px;
+    --_font-sizing---body--text-xs:        14px;
+
+    /* Spacing scales down */
+    --_spacing---space-4xl:      60px;
+    --_spacing---space-3xl:      50px;
+    --_spacing---space-3xl-alt:  50px;
+    --_spacing---space-3xl-md:   50px;
+    --_spacing---space-2xl:      40px;
+    --_spacing---space-2xl-alt:  60px;
+    --_spacing---space-xl:       30px;
+    --_spacing---space-xl-alt:   40px;
+    --_spacing---space-lg:       25px;
+    --_spacing---space-lg-alt:   30px;
+    --_spacing---space-lg-md:    30px;
+    --_spacing---space-md-lg:    22px;
+    --_spacing---space-md:       20px;
+    --_spacing---space-md-alt:   22px;
+    --_spacing---space-sm:       16px;
+    --_spacing---space-sm-alt:   17px;
+    --_spacing---space-xs:       12px;
+    --_spacing---space-5xl:      40px;
+    --_spacing---padding--pd-section-lg: 100px;
+    --_spacing---padding--pd-xxl:        90px;
+    --_spacing---padding--pd-xl:         90px;
+    --_spacing---padding--pd-lg:         30px;
+    --_spacing---padding--pd-md:         30px;
+    --_spacing---padding--pd-md-lg:      30px;
+    --_spacing---padding--pd-sm:         30px;
+    --_spacing---padding--pd-sm-md:      30px;
+    --_spacing---padding--pd-xs:         22px;
+    --_spacing---padding--pd-xs-lg:      24px;
+    --_spacing---padding--pd-xxs:        20px;
+
+    /* Letter spacing loosens */
+    --_letter-spacing---ls-xxxl:     -2px;
+    --_letter-spacing---ls-xxl:      -1px;
+    --_letter-spacing---ls-xl:       -1px;
+    --_letter-spacing---ls-widest:   -0.88px;
+    --_letter-spacing---ls-wider:    -1px;
+    --_letter-spacing---ls-wide:     -1px;
+    --_letter-spacing---ls-md-wide:  -0.88px;
+    --_letter-spacing---ls-md:       -0.5px;
+    --_letter-spacing---ls-md-tight: -0.44px;
+    --_letter-spacing---ls-compact:  -0.4px;
+    --_letter-spacing---ls-tight:    -0.15px;
+    --_letter-spacing---ls-tighter:  -0.15px;
+    --_letter-spacing---ls-tightest: -0.14px;
+
+    /* Radii reduce slightly */
+    --_radius---radius-xl: 62px;
+    --_radius---radius-md: 20px;
+    --_radius---radius-sm: 16px;
+    --_radius---radius-xs: 12px;
+  }
+}
+
+/* ── MOBILE LANDSCAPE (<= 767px) ──────────────────────────────────────────── */
+@media screen and (max-width: 767px) {
+  :root {
+    --_font-sizing---heading--heading-xxl: 42px;
+    --_font-sizing---heading--heading-xl:  30px;
+    --_font-sizing---heading--heading-lg:  30px;
+    --_font-sizing---heading--heading-md:  28px;
+    --_font-sizing---heading--heading-sm:  26px;
+    --_font-sizing---heading--heading-xs:  24px;
+    --_font-sizing---heading--heading-xxs: 20px;
+    --_font-sizing---body--display-lg:     60px;
+    --_font-sizing---body--display-sm:     28px;
+    --_font-sizing---body--text-xl:        20px;
+    --_font-sizing---body--text-lg:        18px;
+    --_font-sizing---body--text-md:        18px;
+    --_font-sizing---body--text-sm:        16px;
+
+    --_spacing---space-4xl:      50px;
+    --_spacing---space-3xl:      40px;
+    --_spacing---space-3xl-alt:  40px;
+    --_spacing---space-3xl-md:   40px;
+    --_spacing---space-2xl:      30px;
+    --_spacing---space-2xl-alt:  50px;
+    --_spacing---space-xl:       26px;
+    --_spacing---space-xl-alt:   30px;
+    --_spacing---space-lg:       20px;
+    --_spacing---space-lg-alt:   24px;
+    --_spacing---space-lg-md:    24px;
+    --_spacing---space-md-lg:    20px;
+    --_spacing---space-md-alt:   20px;
+    --_spacing---space-sm-alt:   16px;
+    --_spacing---space-5xl:      30px;
+    --_spacing---padding--pd-section-lg: 80px;
+    --_spacing---padding--pd-xxl:        80px;
+    --_spacing---padding--pd-xl:         80px;
+    --_spacing---padding--pd-lg:         20px;
+    --_spacing---padding--pd-md:         20px;
+    --_spacing---padding--pd-md-lg:      20px;
+    --_spacing---padding--pd-sm:         20px;
+    --_spacing---padding--pd-sm-md:      20px;
+    --_spacing---padding--pd-xs:         20px;
+    --_spacing---padding--pd-xs-lg:      20px;
+
+    --_letter-spacing---ls-xxxl:     -1px;
+    --_letter-spacing---ls-xxl:      -0.5px;
+    --_letter-spacing---ls-xl:       -0.5px;
+    --_letter-spacing---ls-widest:   -0.44px;
+    --_letter-spacing---ls-wider:    -0.5px;
+    --_letter-spacing---ls-wide:     0.5px;
+    --_letter-spacing---ls-md-wide:  -0.5px;
+    --_letter-spacing---ls-md:       -0.25px;
+    --_letter-spacing---ls-md-tight: -0.22px;
+    --_letter-spacing---ls-compact:  -0.2px;
+    --_letter-spacing---ls-tight:    -0.1px;
+    --_letter-spacing---ls-tighter:  -0.08px;
+    --_letter-spacing---ls-tightest: -0.1px;
+  }
+}
+
+/* ── MOBILE PORTRAIT (<= 479px) ───────────────────────────────────────────── */
+@media screen and (max-width: 479px) {
+  :root {
+    --_font-sizing---heading--heading-xxl: 32px;
+    --_font-sizing---heading--heading-xl:  30px;
+    --_font-sizing---heading--heading-lg:  28px;
+    --_font-sizing---heading--heading-md:  26px;
+    --_font-sizing---heading--heading-sm:  24px;
+    --_font-sizing---heading--heading-xs:  22px;
+    --_font-sizing---heading--heading-xxs: 18px;
+    --_font-sizing---body--display-lg:     52px;
+    --_font-sizing---body--display-sm:     26px;
+    --_font-sizing---body--text-xl:        18px;
+    --_font-sizing---body--text-lg:        16px;
+    --_font-sizing---body--text-md:        16px;
+
+    --_spacing---space-4xl:      40px;
+    --_spacing---space-3xl:      30px;
+    --_spacing---space-3xl-alt:  30px;
+    --_spacing---space-3xl-md:   30px;
+    --_spacing---space-2xl:      28px;
+    --_spacing---space-2xl-alt:  30px;
+    --_spacing---space-xl:       22px;
+    --_spacing---space-xl-alt:   20px;
+    --_spacing---space-lg:       20px;
+    --_spacing---space-lg-alt:   20px;
+    --_spacing---space-lg-md:    20px;
+    --_spacing---space-md-lg:    16px;
+    --_spacing---space-md:       16px;
+    --_spacing---space-md-alt:   16px;
+    --_spacing---space-sm:       10px;
+    --_spacing---space-5xl:      24px;
+    --_spacing---padding--pd-section-lg: 60px;
+    --_spacing---padding--pd-xxl:        60px;
+    --_spacing---padding--pd-xl:         60px;
+    --_spacing---padding--pd-lg:         15px;
+    --_spacing---padding--pd-md:         15px;
+    --_spacing---padding--pd-md-lg:      15px;
+    --_spacing---padding--pd-sm:         15px;
+    --_spacing---padding--pd-sm-md:      15px;
+    --_spacing---padding--pd-xs:         15px;
+    --_spacing---padding--pd-xs-lg:      15px;
+    --_spacing---padding--pd-xxs:        15px;
+    --_spacing---padding--pd-tiny:       10px;
+
+    --_letter-spacing---ls-xxxl:     -0.5px;
+    --_letter-spacing---ls-xxl:      -0.22px;
+    --_letter-spacing---ls-xl:       -0.2px;
+    --_letter-spacing---ls-widest:   -0.22px;
+    --_letter-spacing---ls-wider:    -0.2px;
+    --_letter-spacing---ls-wide:     -0.2px;
+    --_letter-spacing---ls-md-wide:  -0.2px;
+    --_letter-spacing---ls-md:       -0.11px;
+    --_letter-spacing---ls-md-tight: -0.11px;
+    --_letter-spacing---ls-compact:  -0.1px;
+    --_letter-spacing---ls-tight:    -0.08px;
+    --_letter-spacing---ls-tighter:  -0.06px;
+    --_letter-spacing---ls-tightest: -0.06px;
+  }
+}

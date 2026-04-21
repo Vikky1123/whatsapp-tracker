@@ -1,0 +1,104 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — FAQ / ACCORDION COMPONENT
+   Source: stuxen.webflow.io
+
+   Structure:
+   <div class="faq-tabs">
+     <div class="faq-tabs-menu">
+       <a class="faq-tabs-link w--current">General</a>
+       <a class="faq-tabs-link">Services</a>
+     </div>
+     <div class="faq-tabs-pane">
+       <div class="faq-ans-wrapper">
+         <div class="faq-title-wrap">
+           <h5 class="faq-title">Question text?</h5>
+           <div class="faq-icon-wrap">
+             <img class="faq-icon _01" src="icons/faq/faq-icon-plus.svg">
+             <img class="faq-icon _02" src="icons/faq/faq-icon-minus.svg">
+           </div>
+         </div>
+         <div class="faq-ans">
+           <p class="regular-text faq-details-mb">Answer text...</p>
+         </div>
+         <div class="faq-divider"></div>
+       </div>
+     </div>
+   </div>
+   ============================================================================= */
+
+.faq-tabs {
+  gap: var(--_spacing---space-xl);
+  flex-direction: column;
+  display: flex;
+}
+
+.faq-tabs-menu {
+  gap: var(--_spacing---space-xs);
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.faq-tabs-link {
+  border: 1px solid var(--dark-12);
+  border-radius: var(--_radius---radius-xl);
+  padding: 6px 24px;
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  letter-spacing: var(--_letter-spacing---ls-tighter);
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--dark-70);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.faq-tabs-link.w--current {
+  background-color: var(--primary-clr);
+  color: var(--white);
+  border-color: var(--primary-clr);
+}
+
+.faq-ans-wrapper {
+  cursor: pointer;
+}
+
+.faq-title-wrap {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.faq-title {
+  font-size: var(--_font-sizing---heading--heading-xs);
+  line-height: var(--_font-typography---line-height--line-height-md-relaxed);
+  font-weight: var(--_font-typography---font-weight--font-weight-semi-bold);
+  letter-spacing: var(--_letter-spacing---ls-md-wide);
+  margin: 0;
+}
+
+.faq-icon-wrap {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.faq-icon._02 {
+  position: absolute;
+  opacity: 0;
+}
+
+.faq-ans {
+  height: 0;
+  overflow: hidden;
+  /* Animated via JS: height 0 → auto, 400ms ease */
+}
+
+.faq-divider {
+  background-color: var(--dark-12);
+  width: 100%;
+  height: 1px;
+  margin-top: var(--_spacing---space-md-lg);
+}

@@ -1,0 +1,66 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — COLOR TOKENS
+   Source: stuxen.webflow.io
+
+   Usage:
+     @import url('./colors.css');
+     .my-element { color: var(--primary-clr); }
+   ============================================================================= */
+
+:root {
+  /* ── Brand Colors ─────────────────────────────────────────────────────────── */
+  --primary-clr:     #5235f6;         /* Primary brand purple — buttons, accents, active states */
+  --secondary-clr:   #212121;         /* Primary text color / dark tone */
+  --white:           white;           /* Pure white — card backgrounds, text on dark */
+  --white-smoke:     whitesmoke;      /* Page background — #f5f5f5 */
+  --black:           black;           /* True black — rare, used for overlays */
+
+  /* ── Opacity Variants (derived from secondary #212121) ───────────────────── */
+  --dark-70:         #212121b3;       /* 70% opacity — body text, muted content */
+  --dark-16:         #21212129;       /* 16% opacity — subtle borders, dividers */
+  --dark-12:         #2121211f;       /* 12% opacity — borders, lines, separators */
+
+  /* ── Utility Colors ──────────────────────────────────────────────────────── */
+  --transparent:     transparent;     /* Fully transparent — navbar bg, hover resets */
+  --gray-light:      #e4e4e4;         /* Light gray — subtle borders, backgrounds */
+
+  /* ── Overlay Colors (used in project cards, backdrops) ───────────────────── */
+  --overlay-60:      #21212199;       /* 60% dark overlay with backdrop-filter: blur(2px) */
+
+  /* ── Gradients ─────────────────────────────────────────────────────────── */
+  --gradient-primary-fade: linear-gradient(#5235f600, #5235f6 68%);  /* Primary purple fade-in from transparent */
+
+  /* ── Backdrop Filters ──────────────────────────────────────────────────── */
+  --backdrop-blur-sm: blur(2px);      /* Subtle blur — overlay cards */
+  --backdrop-blur-lg: blur(30px);     /* Strong blur — modal overlays, nav mobile bg */
+}
+
+/* =============================================================================
+   SEMANTIC COLOR MAP
+
+   Map the raw tokens to semantic roles for easier reuse across projects.
+   ============================================================================= */
+
+:root {
+  /* Text */
+  --color-text-primary:     var(--secondary-clr);
+  --color-text-secondary:   var(--dark-70);
+  --color-text-on-dark:     var(--white);
+  --color-text-accent:      var(--primary-clr);
+
+  /* Backgrounds */
+  --color-bg-page:          var(--white-smoke);
+  --color-bg-surface:       var(--white);
+  --color-bg-primary:       var(--primary-clr);
+  --color-bg-transparent:   var(--transparent);
+
+  /* Borders */
+  --color-border-default:   var(--dark-12);
+  --color-border-subtle:    var(--dark-16);
+  --color-border-primary:   var(--primary-clr);
+
+  /* Interactive */
+  --color-link-default:     var(--dark-70);
+  --color-link-hover:       var(--primary-clr);
+  --color-link-active:      var(--primary-clr);
+}

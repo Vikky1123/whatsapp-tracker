@@ -10,11 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../stuxen-design-toolkit/tokens/index.css">
-  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/responsive.css">
-  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/containers.css">
-  <link rel="stylesheet" href="../stuxen-design-toolkit/components/buttons.css">
-  <link rel="stylesheet" href="../stuxen-design-toolkit/interactions/hover-effects.css">
+  <link rel="stylesheet" href="stuxen-design-toolkit/tokens/index.css">
+  <link rel="stylesheet" href="stuxen-design-toolkit/layouts/responsive.css">
+  <link rel="stylesheet" href="stuxen-design-toolkit/layouts/containers.css">
+  <link rel="stylesheet" href="stuxen-design-toolkit/components/buttons.css">
+  <link rel="stylesheet" href="stuxen-design-toolkit/interactions/hover-effects.css">
 
   <link rel="stylesheet" href="css/app.css">
 </head>
@@ -39,15 +39,6 @@
     </div>
   </main>
 
-  <script type="module">
-    import { bindLoginForm } from './js/auth.js';
-    bindLoginForm({
-      formEl:     document.getElementById('loginForm'),
-      emailEl:    document.getElementById('email'),
-      passwordEl: document.getElementById('password'),
-      errorEl:    document.getElementById('error'),
-      onSuccessRedirect: 'dashboard.html',
-    });
-  </script>
+  <script type="module" src="js/login.js"></script>
 </body>
 </html>
