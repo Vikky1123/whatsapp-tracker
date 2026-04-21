@@ -1,7 +1,7 @@
 {
   "rules": {
-    ".read":  "auth != null && auth.uid == 'REPLACE_WITH_SHARED_UID'",
-    ".write": "auth != null && auth.uid == 'REPLACE_WITH_SHARED_UID'",
+    ".read":  "auth != null && auth.uid == 'xW2iGn08xhbeUN7FPGQRmZ584Oi2'",
+    ".write": "auth != null && auth.uid == 'xW2iGn08xhbeUN7FPGQRmZ584Oi2'",
     "projects": {
       "$projectId": {
         ".validate": "newData.hasChildren(['title','status','createdAt'])",
