@@ -5,11 +5,12 @@
   "description": "A static tracker website for a 3-person WhatsApp developer group to coordinate and archive Fiverr projects.",
   "scripts": {
     "test": "node --test tests/",
-    "lint": "eslint public/js/ tests/",
+    "lint": "eslint public/js/ tests/ --no-error-on-unmatched-pattern",
     "serve": "npx serve public"
   },
   "devDependencies": {
     "eslint": "^9.0.0",
+    "globals": "^17.5.0",
     "serve": "^14.0.0"
   }
 }
