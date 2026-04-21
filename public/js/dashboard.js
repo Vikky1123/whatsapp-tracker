@@ -20,6 +20,7 @@ let activeStatus = 'all';
 let showArchived = false;
 let searchText = '';
 let sortMode = 'recent';
+let hasLoadedOnce = false;
 
 requireAuth({ onReady: init });
 watchSessionTimeout();
@@ -27,6 +28,7 @@ watchSessionTimeout();
 function init() {
   subscribeProjects((list) => {
     allProjects = list;
+    hasLoadedOnce = true;
     render();
   });
   bindUI();
@@ -157,6 +159,16 @@ function renderList() {
   const listEl = document.getElementById('projectList');
   const emptyEl = document.getElementById('emptyState');
   listEl.replaceChildren();
+
+  // Don't flash empty state before Firebase responds for the first time
+  if (!hasLoadedOnce) {
+    emptyEl.hidden = true;
+    const loading = document.createElement('div');
+    loading.className = 'empty';
+    setText(loading, 'Loading your commissions…');
+    listEl.appendChild(loading);
+    return;
+  }
 
   let items = allProjects.slice();
   if (!showArchived) items = items.filter(p => p.status !== 'paid');

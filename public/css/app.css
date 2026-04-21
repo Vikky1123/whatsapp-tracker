@@ -76,6 +76,8 @@
 }
 
 * { box-sizing: border-box; }
+*::before, *::after { box-sizing: border-box; }
+html, body, header, section, main, nav, article, div, form, dialog { box-sizing: border-box; }
 
 [hidden] { display: none !important; }
 
@@ -375,7 +377,6 @@ label input, label textarea, label select {
   padding: var(--s-8) var(--gutter) var(--s-6);
   max-width: var(--page-max);
   margin: 0 auto;
-  width: 100%;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: var(--s-8);
@@ -1205,6 +1206,8 @@ label input, label textarea, label select {
   .project-list-head > span:nth-child(n+5), .project-card > *:nth-child(n+5) { display: none; }
   .project-assignee, .project-meta { display: none; }
   .msg-bubble { grid-template-columns: 1fr; gap: var(--s-2); }
+  .grid-toolbar { gap: var(--s-1); }
+  .grid-toolbar .tool-btn { font-size: 12px; padding: 4px 6px; }
 }
 
 @media (max-width: 720px) {
@@ -1222,7 +1225,8 @@ label input, label textarea, label select {
   .brand .sub { display: none; }
 
   .dash-hero { padding: var(--s-6) var(--gutter); gap: var(--s-5); }
-  .dash-hero h1 { font-size: 34px; }
+  .dash-hero h1 { font-size: 32px; line-height: 1.1; }
+  .dash-hero h1 em { padding: 0 0.1em; }
   .dash-stats { grid-template-columns: 1fr; gap: var(--s-2); }
   .stat { padding: var(--s-4); }
   .stat-num { font-size: 34px; }
@@ -1243,12 +1247,18 @@ label input, label textarea, label select {
   .chip { white-space: nowrap; flex-shrink: 0; }
   .sort-select { flex: 1; }
 
+  .grid-toolbar { padding: var(--s-2); gap: 2px; }
+  .grid-toolbar .tool-btn { font-size: 11px; padding: 4px 6px; gap: 3px; }
+  .grid-toolbar .view-tab { font-size: 12px; padding: 4px 8px; }
+  .grid-toolbar .sep { margin: 0 2px; }
+
   .project-list-head, .project-card { grid-template-columns: 28px 1fr auto; gap: 0; }
   .project-list-head > span:nth-child(n+4), .project-card > *:nth-child(n+4) { display: none; }
   .project-card .project-price,
   .project-card .project-assignee,
   .project-card .project-meta { display: none; }
   .project-card > * { padding: var(--s-3) var(--s-3); }
+  .project-card::after { display: none; }
   .project-main .project-title { font-size: 14.5px; }
   .project-main .project-client { font-size: 12px; }
   .project-status .pill { font-size: 11px; padding: 2px 9px; }
