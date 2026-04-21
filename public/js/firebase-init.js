@@ -7,13 +7,13 @@ import { getAuth, setPersistence, browserLocalPersistence } from 'https://www.gs
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
 
 const firebaseConfig = {
-  apiKey:            "REPLACE_ME",
-  authDomain:        "REPLACE_ME.firebaseapp.com",
-  databaseURL:       "https://REPLACE_ME-default-rtdb.firebaseio.com",
-  projectId:         "REPLACE_ME",
-  storageBucket:     "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId:             "REPLACE_ME"
+  apiKey:            "AIzaSyAhO8A6Xd42pnqju5l_Z6yg5tXH_1S-5F8",
+  authDomain:        "whatsapp-tracker-vikky.firebaseapp.com",
+  databaseURL:       "https://whatsapp-tracker-vikky-default-rtdb.firebaseio.com",
+  projectId:         "whatsapp-tracker-vikky",
+  storageBucket:     "whatsapp-tracker-vikky.firebasestorage.app",
+  messagingSenderId: "684161835299",
+  appId:             "1:684161835299:web:a0ac436b50d429fddbac96"
 };
 
 // OPTIONAL: reCAPTCHA v3 site key for App Check. Leave as-is to skip App Check entirely.
