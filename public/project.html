@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commission · The Tracker</title>
+  <title>Commission · Tracker</title>
   <link rel="icon" href="favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="project-page">
-  <header class="masthead">
-    <div class="masthead-left">VOL. I · NO. 001</div>
-    <h1 class="masthead-title">The Tracker <span class="amp">&amp;</span> Archive</h1>
-    <div class="masthead-right" id="dateline"></div>
+  <header class="topnav">
+    <div class="brand">
+      <a href="dashboard.html" style="display:flex;align-items:center;gap:var(--s-3);color:inherit;text-decoration:none;">
+        <span class="mark">T</span>
+        <span>Tracker<span class="slash">/</span><span class="sub">archive</span></span>
+      </a>
+    </div>
+    <div></div>
+    <div class="topnav-right">
+      <a href="dashboard.html" class="btn btn-ghost">← All commissions</a>
+    </div>
   </header>
-
-  <div class="folio">
-    <span id="folioFrom"><a href="dashboard.html" class="back-link">&larr; Return to the ledger</a></span>
-    <span id="folioMiddle">Commission file</span>
-    <span id="folioPage"></span>
-  </div>
 
   <section class="article-hero">
     <div class="article-dateline">
       <span id="articleDate"></span>
       <span id="articleByline"></span>
       <div class="article-status-wrap">
-        <select id="statusDropdown" class="status-dropdown" aria-label="Status">
+        <select id="statusDropdown" class="status-dropdown" aria-label="Stage">
           <option value="new">Stage · New</option>
           <option value="quoted">Stage · Quoted</option>
           <option value="awaiting_client">Stage · Awaiting client</option>
@@ -50,10 +51,10 @@
   </section>
 
   <nav class="tab-bar" role="tablist">
-    <button class="tab tab-active" data-tab="conversation" role="tab">The conversation</button>
-    <button class="tab" data-tab="notes" role="tab">Notes &amp; decisions</button>
-    <button class="tab" data-tab="details" role="tab">The file</button>
-    <button class="tab" data-tab="links" role="tab">References</button>
+    <button class="tab tab-active" data-tab="conversation" role="tab">Conversation</button>
+    <button class="tab" data-tab="notes" role="tab">Notes</button>
+    <button class="tab" data-tab="details" role="tab">Details</button>
+    <button class="tab" data-tab="links" role="tab">Links</button>
   </nav>
 
   <section id="tab-conversation" class="tab-panel">
@@ -78,7 +79,7 @@
       <label>Fee <input id="dPrice" maxlength="50"></label>
       <label>Deadline <input id="dDeadline" type="date"></label>
       <label>Filed by <input id="dAssignee" maxlength="100"></label>
-      <label>The client's request <textarea id="dClientRequest" maxlength="10000"></textarea></label>
+      <label>Client's request <textarea id="dClientRequest" maxlength="10000"></textarea></label>
       <label>Our approach <textarea id="dOurApproach" maxlength="10000"></textarea></label>
       <label>Deliverables <textarea id="dDeliverables" maxlength="10000"></textarea></label>
       <label>Outcome &amp; lessons <textarea id="dOutcome" maxlength="10000"></textarea></label>
@@ -86,7 +87,8 @@
     </form>
 
     <div class="danger-zone">
-      <p>Delete this file permanently along with every note and message it holds.</p>
+      <h3>Danger zone</h3>
+      <p>Delete this commission and every note + message attached.</p>
       <button id="deleteBtn" class="btn-danger">Delete commission</button>
     </div>
   </section>
@@ -102,12 +104,12 @@
 
   <dialog id="pasteDialog" class="dialog">
     <h2>Paste from WhatsApp</h2>
-    <p class="kicker">Paste the conversation · we'll parse it</p>
+    <p class="kicker">Paste the chunk · we'll parse it</p>
     <textarea id="pasteRaw" placeholder="Paste here…"></textarea>
     <button id="previewBtn" type="button" class="btn-primary">Preview parse</button>
     <div id="pastePreview" class="paste-preview" hidden></div>
     <div class="dialog-buttons">
-      <button id="pasteCancel" value="cancel">Cancel</button>
+      <button id="pasteCancel" type="button" value="cancel" formnovalidate>Cancel</button>
       <button id="pasteImport" class="btn-primary" disabled>File it</button>
     </div>
   </dialog>
@@ -115,17 +117,16 @@
   <dialog id="deleteDialog" class="dialog">
     <h2>Delete commission</h2>
     <p class="kicker">Type the title to confirm</p>
-    <p><strong id="delTitleEcho" class="display-s"></strong></p>
+    <p><strong id="delTitleEcho" style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--ink);"></strong></p>
     <input id="delConfirmInput" type="text" maxlength="200">
     <div class="dialog-buttons">
-      <button id="delCancelBtn" value="cancel">Cancel</button>
+      <button id="delCancelBtn" type="button" value="cancel" formnovalidate>Cancel</button>
       <button id="delConfirmBtn" class="btn-danger" disabled>Delete forever</button>
     </div>
   </dialog>
 
   <div id="offlinePill" class="offline-pill" hidden>Offline · will sync</div>
 
-  <script type="module" src="js/datestamp.js"></script>
   <script type="module" src="js/project.js"></script>
 </body>
 </html>

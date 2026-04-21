@@ -183,6 +183,11 @@ function bindPasteFlow() {
 
   cancelBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    rawEl.value = '';
+    previewEl.hidden = true;
+    previewEl.replaceChildren();
+    importBtn.disabled = true;
+    lastParsed = null;
     dlg.close('cancel');
   });
 

@@ -3,57 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tracker · Dashboard</title>
+  <title>Tracker · Dashboard</title>
   <link rel="icon" href="favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="dashboard-page">
-  <header class="masthead">
-    <div class="masthead-left">VOL. I · NO. 001</div>
-    <h1 class="masthead-title">The Tracker <span class="amp">&amp;</span> Archive</h1>
-    <div class="masthead-right" id="dateline"></div>
-  </header>
-
-  <div class="folio">
-    <span>The Ledger</span><span>All commissions, all stages</span><span>Filed live</span>
-  </div>
-
-  <header class="top-bar">
-    <div class="top-bar-left">
-      <span class="logo">The Ledger</span>
+  <header class="topnav">
+    <div class="brand">
+      <span class="mark">T</span>
+      <span>Tracker<span class="slash">/</span><span class="sub">archive</span></span>
     </div>
-    <div class="top-bar-center">
-      <input id="search" type="search" placeholder="Search commissions, clients, conversations…" class="search-input">
-    </div>
-    <div class="top-bar-right">
-      <button id="newProjectBtn" class="btn-primary">+ New commission</button>
-      <button id="settingsBtn" class="btn-icon" aria-label="Settings">§</button>
+    <input id="search" type="search" placeholder="Search commissions, clients, conversations…" class="search-input">
+    <div class="topnav-right">
+      <button id="newProjectBtn" class="btn-primary">+ New</button>
+      <button id="settingsBtn" class="btn-icon" aria-label="Settings">···</button>
     </div>
   </header>
 
   <section class="dash-hero">
-    <div class="dash-hero-left">
-      <p class="kicker">The current press</p>
-      <h1 class="display" id="heroHeadline">All commissions, <em>in one place.</em></h1>
-      <p class="dash-hero-sub">What the group discussed · what the client wanted · what we shipped · filed live from the WhatsApp channel.</p>
+    <div>
+      <p class="kicker">The press / current state</p>
+      <h1>Every commission, <em>one place.</em></h1>
+      <p class="dash-hero-sub">What the client asked for · how we went about it · what we shipped · what they paid. Pasted straight from the WhatsApp channel, live-synced across the group.</p>
     </div>
     <div class="dash-stats">
       <div class="stat">
-        <span class="stat-num tabular" id="statActive">0</span>
-        <span class="stat-label">Active · in flight</span>
+        <span class="stat-label">Active</span>
+        <span class="stat-num tabular" id="statActive">00</span>
       </div>
       <div class="stat">
-        <span class="stat-num tabular" id="statWaiting">0</span>
-        <span class="stat-label">Awaiting reply</span>
+        <span class="stat-label">Awaiting</span>
+        <span class="stat-num tabular" id="statWaiting">00</span>
       </div>
       <div class="stat">
-        <span class="stat-num tabular" id="statPaid">0</span>
-        <span class="stat-label">Paid &amp; filed</span>
+        <span class="stat-label">Paid</span>
+        <span class="stat-num tabular" id="statPaid">00</span>
       </div>
     </div>
   </section>
@@ -62,14 +51,14 @@
     <div id="filterChips" class="filter-chips"></div>
     <div class="filter-right">
       <label class="archive-toggle">
-        <input id="showArchived" type="checkbox"> Show archive
+        <input id="showArchived" type="checkbox"> Show paid
       </label>
       <select id="sortSelect" class="sort-select">
-        <option value="recent">Sort · Recently touched</option>
-        <option value="newest">Sort · Newest first</option>
-        <option value="oldest">Sort · Oldest first</option>
-        <option value="status">Sort · By stage</option>
-        <option value="deadline">Sort · By deadline</option>
+        <option value="recent">Recently touched</option>
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="status">By stage</option>
+        <option value="deadline">By deadline</option>
       </select>
     </div>
   </section>
@@ -85,7 +74,7 @@
     </div>
     <div id="projectList" class="project-list"></div>
     <div id="emptyState" class="empty-state" hidden>
-      Nothing on the press yet. <br>Click <em>+ New commission</em> to open the first file.
+      Nothing on the press. Hit <strong>+ New</strong> to open the first file.
     </div>
   </main>
 
@@ -108,26 +97,25 @@
           <option value="Other">Other</option>
         </select>
       </label>
-      <label>Fee <input id="npPrice" maxlength="50" placeholder="$150 · TBD · ₦50 000"></label>
+      <label>Fee <input id="npPrice" maxlength="50" placeholder="$150 · ₦50 000 · TBD"></label>
       <label>Filed by <input id="npAssignee" maxlength="100" placeholder="Who's on it"></label>
       <div class="dialog-buttons">
-        <button value="cancel">Cancel</button>
-        <button id="npSubmit" value="create" class="btn-primary">Create file</button>
+        <button type="button" id="npCancel" value="cancel" formnovalidate>Cancel</button>
+        <button id="npSubmit" value="create" class="btn-primary">Create</button>
       </div>
     </form>
   </dialog>
 
   <dialog id="changelogDialog" class="dialog">
-    <h2>Changelog</h2>
+    <h2>Recent activity</h2>
     <ul id="changelogList" class="changelog-list"></ul>
     <div class="dialog-buttons">
-      <button id="changelogClose">Close</button>
+      <button id="changelogClose" type="button">Close</button>
     </div>
   </dialog>
 
   <div id="offlinePill" class="offline-pill" hidden>Offline · will sync</div>
 
-  <script type="module" src="js/datestamp.js"></script>
   <script type="module" src="js/dashboard.js"></script>
 </body>
 </html>

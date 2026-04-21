@@ -49,13 +49,18 @@ function bindUI() {
   });
 
   document.getElementById('newProjectBtn').addEventListener('click', () => {
+    document.getElementById('newProjectForm').reset();
     document.getElementById('newProjectDialog').showModal();
   });
 
+  document.getElementById('npCancel').addEventListener('click', () => {
+    document.getElementById('newProjectDialog').close('cancel');
+    document.getElementById('newProjectForm').reset();
+  });
+
   document.getElementById('newProjectForm').addEventListener('submit', async (ev) => {
-    const dlg = document.getElementById('newProjectDialog');
-    if (dlg.returnValue === 'cancel') { dlg.returnValue = ''; return; }
     ev.preventDefault();
+    const dlg = document.getElementById('newProjectDialog');
     const fields = {
       title:      document.getElementById('npTitle').value.trim(),
       clientName: document.getElementById('npClient').value.trim(),
@@ -68,7 +73,7 @@ function bindUI() {
     try {
       const id = await createProject(fields);
       document.getElementById('newProjectForm').reset();
-      dlg.close();
+      dlg.close('created');
       window.location.href = `project.html?id=${encodeURIComponent(id)}`;
     } catch (err) {
       alert('Could not create: ' + (err && err.message ? err.message : err));
@@ -221,9 +226,9 @@ function projectCard(p, index) {
 
   // Status
   const status = document.createElement('div');
-  status.className = 'project-status';
+  status.className = `project-status status-${p.status || 'new'}`;
   const dot = document.createElement('span');
-  dot.className = `status-dot status-${p.status || 'new'}`;
+  dot.className = 'status-dot';
   status.appendChild(dot);
   const statusText = document.createElement('span');
   setText(statusText, STATUS_LABELS[p.status] || 'New');
