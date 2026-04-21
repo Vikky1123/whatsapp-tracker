@@ -26,7 +26,19 @@ requireAuth({ onReady: init });
 watchSessionTimeout();
 
 function init() {
+  const startedAt = Date.now();
+  let timeoutWarning = setTimeout(() => {
+    const loadingEl = document.querySelector('#projectList .empty');
+    if (loadingEl && !hasLoadedOnce) {
+      setText(loadingEl, 'Still loading… (check browser console for errors)');
+    }
+    console.warn('[tracker] No Firebase response after 8s. Check Network tab for blocked requests.');
+  }, 8000);
+
+  console.log('[tracker] Subscribing to projects…');
   subscribeProjects((list) => {
+    clearTimeout(timeoutWarning);
+    console.log(`[tracker] Projects loaded in ${Date.now()-startedAt}ms — count:`, list.length);
     allProjects = list;
     hasLoadedOnce = true;
     render();

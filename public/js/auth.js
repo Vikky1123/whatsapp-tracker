@@ -46,7 +46,9 @@ export async function doSignOut() {
 }
 
 export function requireAuth({ onReady } = {}) {
+  console.log('[tracker] requireAuth waiting for Firebase auth state…');
   onAuthStateChanged(auth, (user) => {
+    console.log('[tracker] auth state:', user ? `signed in as ${user.email} (${user.uid})` : 'signed out');
     if (!user) {
       const path = window.location.pathname;
       if (path.endsWith('index.html') || path === '/' || path.endsWith('/public/')) {
@@ -58,6 +60,7 @@ export function requireAuth({ onReady } = {}) {
     const started = Number(localStorage.getItem(SESSION_KEY) || Date.now());
     const elapsed = Date.now() - started;
     if (elapsed > SESSION_MAX_MS) {
+      console.log('[tracker] session expired, signing out');
       doSignOut();
       return;
     }

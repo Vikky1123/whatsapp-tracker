@@ -19,7 +19,10 @@ export function subscribeProjects(callback) {
   return onValue(projectsRef, (snap) => {
     const val = snap.val() || {};
     const list = Object.entries(val).map(([id, p]) => ({ id, ...p }));
+    console.log('[tracker] subscribeProjects snapshot received —', list.length, 'project(s)');
     callback(list);
+  }, (err) => {
+    console.error('[tracker] subscribeProjects error:', err?.code, err?.message);
   });
 }
 
