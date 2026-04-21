@@ -218,3 +218,43 @@ test('iPhone format with "at" separator', () => {
   assert.equal(messages.length, 1);
   assert.equal(messages[0].sender, 'Tomi');
 });
+
+test('iPhone format WITHOUT year (uses current year)', () => {
+  const raw = '[4/20, 11:30 AM] Nelson: HIM';
+  const { messages, stats } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, 'Nelson');
+  assert.equal(messages[0].text, 'HIM');
+  const currentYear = new Date().getFullYear();
+  assert.match(messages[0].timestamp, new RegExp(`^${currentYear}-04-20T11:30`));
+  assert.equal(stats.rawFallback, false);
+});
+
+test('iPhone format no-year with sender name containing spaces', () => {
+  const raw = '[4/20, 11:36 AM] Just Joel: Sorry';
+  const { messages } = parseWhatsApp(raw);
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].sender, 'Just Joel');
+  assert.equal(messages[0].text, 'Sorry');
+});
+
+test('Real WhatsApp paste: mixed no-year messages with multi-line bodies', () => {
+  const raw = [
+    '[4/20, 11:30 AM] Nelson: HIM',
+    '',
+    'Hello. This is my website https://www.huntrix.com',
+    '',
+    'do you know how to create AI videos?',
+    '[4/20, 11:36 AM] Nelson: Owkay',
+    '[4/20, 11:36 AM] Just Joel: Sorry',
+  ].join('\n');
+  const { messages, stats } = parseWhatsApp(raw);
+  assert.equal(messages.length, 3);
+  assert.equal(messages[0].sender, 'Nelson');
+  assert.match(messages[0].text, /^HIM/);
+  assert.match(messages[0].text, /huntrix/);
+  assert.equal(messages[1].sender, 'Nelson');
+  assert.equal(messages[1].text, 'Owkay');
+  assert.equal(messages[2].sender, 'Just Joel');
+  assert.equal(stats.rawFallback, false);
+});

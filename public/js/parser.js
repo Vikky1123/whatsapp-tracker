@@ -1,14 +1,20 @@
-const IPHONE_RE  = /^\[(\d{1,2})\/(\d{1,2})\/(\d{2,4})(?:,|\s+at)?\s*(\d{1,2}):(\d{2})(?::\d{2})?\s*([AP]M)\]\s*([^:]+?):\s*(.*)$/i;
-const ANDROID_RE = /^(\d{1,2})\/(\d{1,2})\/(\d{2,4})(?:,|\s+at)?\s*(\d{1,2}):(\d{2})(?::\d{2})?\s*-\s*([^:]+?):\s*(.*)$/;
+const IPHONE_RE  = /^\[(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?(?:,|\s+at)?\s*(\d{1,2}):(\d{2})(?::\d{2})?\s*([AP]M)\]\s*([^:]+?):\s*(.*)$/i;
+const ANDROID_RE = /^(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?(?:,|\s+at)?\s*(\d{1,2}):(\d{2})(?::\d{2})?\s*-\s*([^:]+?):\s*(.*)$/;
 const SYSTEM_RE  = /messages and calls are end-to-end encrypted|created group|added|left|changed the subject|changed this group/i;
 const MEDIA_RE   = /^(<Media omitted>|\[(?:Image|Video|Audio|Document|Sticker|GIF):.*\]|image omitted|video omitted|audio omitted|document omitted|sticker omitted|GIF omitted)$/i;
 const INVISIBLE  = /\u200e/g;
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
-function toIsoIphone(m, d, y, hh, mm, ampm) {
+function resolveYear(y) {
+  if (y === undefined || y === null || y === '') return new Date().getFullYear();
   let year = Number(y);
   if (year < 100) year += 2000;
+  return year;
+}
+
+function toIsoIphone(m, d, y, hh, mm, ampm) {
+  const year = resolveYear(y);
   let hour = Number(hh);
   const AP = String(ampm).toUpperCase();
   if (AP === 'AM' && hour === 12) hour = 0;
@@ -17,8 +23,7 @@ function toIsoIphone(m, d, y, hh, mm, ampm) {
 }
 
 function toIsoAndroid(d, m, y, hh, mm) {
-  let year = Number(y);
-  if (year < 100) year += 2000;
+  const year = resolveYear(y);
   return `${year}-${pad(Number(m))}-${pad(Number(d))}T${pad(Number(hh))}:${pad(Number(mm))}:00`;
 }
 
