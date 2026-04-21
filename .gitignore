@@ -12,3 +12,6 @@ coverage/
 .idea/
 # local backups
 *backup*.json
+# local test artifacts
+.playwright-mcp/
+mobile-*.png
