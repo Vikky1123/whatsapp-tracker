@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Project Tracker</title>
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../stuxen-design-toolkit/tokens/index.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/responsive.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/containers.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/components/index.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/interactions/hover-effects.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/interactions/scroll-animations.css">
+
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="dashboard-page">
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="logo">Tracker</span>
+    </div>
+    <div class="top-bar-center">
+      <input id="search" type="search" placeholder="Search projects, messages..." class="search-input">
+    </div>
+    <div class="top-bar-right">
+      <button id="newProjectBtn" class="btn-primary">+ New project</button>
+      <button id="settingsBtn" class="btn-icon" aria-label="Settings">&#9881;</button>
+    </div>
+  </header>
+
+  <section class="filters">
+    <div id="filterChips" class="filter-chips"></div>
+    <div class="filter-right">
+      <label class="archive-toggle">
+        <input id="showArchived" type="checkbox"> Show archived
+      </label>
+      <select id="sortSelect" class="sort-select">
+        <option value="recent">Recently updated</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="status">By status</option>
+        <option value="deadline">By deadline</option>
+      </select>
+    </div>
+  </section>
+
+  <main class="project-list-wrap">
+    <div id="projectList" class="project-list"></div>
+    <div id="emptyState" class="empty-state" hidden>
+      No projects yet. Click <strong>+ New project</strong> to add your first.
+    </div>
+  </main>
+
+  <div id="settingsMenu" class="settings-menu" hidden>
+    <button id="exportBtn">Export backup</button>
+    <button id="changelogBtn">View changelog</button>
+    <button id="signOutBtn">Sign out</button>
+  </div>
+
+  <dialog id="newProjectDialog" class="dialog">
+    <form id="newProjectForm" method="dialog">
+      <h2>New project</h2>
+      <label>Title <input id="npTitle" required maxlength="200"></label>
+      <label>Client name <input id="npClient" maxlength="100"></label>
+      <label>Platform
+        <select id="npPlatform">
+          <option value="Fiverr">Fiverr</option>
+          <option value="Upwork">Upwork</option>
+          <option value="Direct">Direct</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label>Price <input id="npPrice" maxlength="50" placeholder="$150 or TBD"></label>
+      <label>Assignee <input id="npAssignee" maxlength="100" placeholder="Who's on it"></label>
+      <div class="dialog-buttons">
+        <button value="cancel">Cancel</button>
+        <button id="npSubmit" value="create" class="btn-primary">Create</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="changelogDialog" class="dialog">
+    <h2>Recent activity</h2>
+    <ul id="changelogList" class="changelog-list"></ul>
+    <button id="changelogClose">Close</button>
+  </dialog>
+
+  <div id="offlinePill" class="offline-pill" hidden>&bull; offline - will sync</div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

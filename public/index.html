@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in - Project Tracker</title>
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../stuxen-design-toolkit/tokens/index.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/responsive.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/layouts/containers.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/components/buttons.css">
+  <link rel="stylesheet" href="../stuxen-design-toolkit/interactions/hover-effects.css">
+
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="login-page">
+  <main class="login-wrap">
+    <div class="login-card">
+      <h1 class="login-title">Project Tracker</h1>
+      <p class="login-sub">Sign in with the shared account.</p>
+
+      <form id="loginForm" class="login-form" autocomplete="off" novalidate>
+        <label>
+          <span>Email</span>
+          <input id="email" type="email" required autocomplete="username">
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="password" type="password" required autocomplete="current-password">
+        </label>
+        <div id="error" class="login-error" role="alert" aria-live="polite"></div>
+        <button type="submit" class="btn-primary">Sign in</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module">
+    import { bindLoginForm } from './js/auth.js';
+    bindLoginForm({
+      formEl:     document.getElementById('loginForm'),
+      emailEl:    document.getElementById('email'),
+      passwordEl: document.getElementById('password'),
+      errorEl:    document.getElementById('error'),
+      onSuccessRedirect: 'dashboard.html',
+    });
+  </script>
+</body>
+</html>
