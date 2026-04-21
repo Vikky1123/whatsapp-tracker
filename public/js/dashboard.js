@@ -224,15 +224,13 @@ function projectCard(p, index) {
   main.appendChild(client);
   card.appendChild(main);
 
-  // Status
+  // Status — Airtable pill style
   const status = document.createElement('div');
   status.className = `project-status status-${p.status || 'new'}`;
-  const dot = document.createElement('span');
-  dot.className = 'status-dot';
-  status.appendChild(dot);
-  const statusText = document.createElement('span');
-  setText(statusText, STATUS_LABELS[p.status] || 'New');
-  status.appendChild(statusText);
+  const pill = document.createElement('span');
+  pill.className = 'pill';
+  setText(pill, STATUS_LABELS[p.status] || 'New');
+  status.appendChild(pill);
   card.appendChild(status);
 
   // Price
