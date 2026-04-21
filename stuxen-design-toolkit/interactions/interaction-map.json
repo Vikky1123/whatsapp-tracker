@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "source": "stuxen.webflow.io",
+    "framework": "Webflow IX2",
+    "extractedDate": "2026-03-07"
+  },
+  "interactions": [
+    {
+      "id": "text-swap-hover",
+      "name": "Text Swap Hover",
+      "description": "Two labels stacked in overflow:hidden container. On hover, first slides up and out, second slides up into view.",
+      "usedOn": ["primary-button", "more-button", "nav-menu-link", "nav-dd"],
+      "trigger": { "type": "MOUSE_OVER", "target": "parent element" },
+      "resetTrigger": { "type": "MOUSE_OUT", "target": "parent element" },
+      "actions": [
+        {
+          "target": "._01 (first label)",
+          "property": "transform.translateY",
+          "from": "0%",
+          "to": "-110%",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": "._02 (second label)",
+          "property": "transform.translateY",
+          "from": "100%",
+          "to": "0%",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "CSS — see interactions/hover-effects.css"
+    },
+    {
+      "id": "nav-dropdown-open",
+      "name": "Nav Dropdown Open",
+      "description": "Dropdown menu reveals with height and opacity animation",
+      "usedOn": ["nav-dd"],
+      "trigger": { "type": "MOUSE_OVER", "target": ".nav-dd" },
+      "actions": [
+        {
+          "target": ".nav-dd-side",
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".nav-dd-list",
+          "property": "height",
+          "from": "0px",
+          "to": "auto",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".nav-dd-text._01",
+          "property": "transform.translateY",
+          "from": "0%",
+          "to": "-110%",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".nav-dd-text._02",
+          "property": "transform.translateY",
+          "from": "110%",
+          "to": "0%",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initNavDropdowns()"
+    },
+    {
+      "id": "nav-dropdown-close",
+      "name": "Nav Dropdown Close",
+      "description": "Reverse of open animation",
+      "usedOn": ["nav-dd"],
+      "trigger": { "type": "MOUSE_OUT", "target": ".nav-dd" },
+      "actions": [
+        {
+          "target": ".nav-dd-side",
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".nav-dd-list",
+          "property": "height",
+          "from": "auto",
+          "to": "0px",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ]
+    },
+    {
+      "id": "project-card-hover",
+      "name": "Project Card Hover",
+      "description": "Image scales up, title background slides in from bottom, text color swaps to white",
+      "usedOn": ["project-v1-card"],
+      "trigger": { "type": "MOUSE_OVER", "target": ".project-v1-card" },
+      "actions": [
+        {
+          "target": ".project-v1-img",
+          "property": "transform.scale",
+          "from": 1,
+          "to": 1.05,
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".project-v1-title-bg",
+          "property": "transform.translateY",
+          "from": "100%",
+          "to": "0%",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".project-v1-title",
+          "property": "color",
+          "from": "var(--secondary-clr)",
+          "to": "var(--white)",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".project-v1-date",
+          "property": "color",
+          "from": "var(--dark-70)",
+          "to": "var(--white)",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "CSS — see interactions/hover-effects.css"
+    },
+    {
+      "id": "service-item-hover",
+      "name": "Service Item Hover",
+      "description": "Preview image fades in and scales up, title color changes to primary",
+      "usedOn": ["services-v1-wrapper"],
+      "trigger": { "type": "MOUSE_OVER", "target": ".services-v1-wrapper" },
+      "actions": [
+        {
+          "target": ".services-v1-img-link",
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".services-v1-img-link",
+          "property": "transform.scale",
+          "from": 0.9,
+          "to": 1,
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".services-v1-title",
+          "property": "color",
+          "from": "inherit",
+          "to": "var(--primary-clr)",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "CSS — see interactions/hover-effects.css"
+    },
+    {
+      "id": "scroll-slide-in-bottom",
+      "name": "Scroll Slide In Bottom",
+      "description": "Elements slide up from below as they enter viewport. Webflow preset: slideInBottom.",
+      "usedOn": ["Most section elements — titles, cards, images, counters"],
+      "trigger": {
+        "type": "SCROLL_INTO_VIEW",
+        "scrollOffsetValue": 0,
+        "scrollOffsetUnit": "%"
+      },
+      "actions": [
+        {
+          "target": "self",
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "duration": 600,
+          "easing": "ease"
+        },
+        {
+          "target": "self",
+          "property": "transform.translateY",
+          "from": "40px",
+          "to": "0",
+          "duration": 600,
+          "easing": "ease"
+        }
+      ],
+      "staggerDelays": [0, 100, 200, 300, 400, 500, 600],
+      "implementation": "CSS + JS — see interactions/scroll-animations.css and webflow-interactions.js → initScrollReveal()"
+    },
+    {
+      "id": "faq-accordion-open",
+      "name": "FAQ Accordion Open",
+      "description": "Answer height animates from 0 to auto, plus/minus icons swap",
+      "usedOn": ["faq-ans-wrapper"],
+      "trigger": { "type": "CLICK", "target": ".faq-title-wrap" },
+      "actions": [
+        {
+          "target": ".faq-ans",
+          "property": "height",
+          "from": "0px",
+          "to": "auto",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".faq-icon._01",
+          "property": "opacity",
+          "from": 1,
+          "to": 0,
+          "duration": 200,
+          "easing": "ease"
+        },
+        {
+          "target": ".faq-icon._02",
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "duration": 200,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initFaqAccordion()"
+    },
+    {
+      "id": "service-divider-slide",
+      "name": "Service Divider Slide In",
+      "description": "Horizontal divider line slides in from left on scroll",
+      "usedOn": ["services-v1-divider-wrap"],
+      "trigger": { "type": "SCROLL_INTO_VIEW" },
+      "actions": [
+        {
+          "target": ".services-v1-divider-wrap",
+          "property": "transform.translateX",
+          "from": "-100%",
+          "to": "0",
+          "duration": 600,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initServiceDividers()"
+    },
+    {
+      "id": "navbar-mobile-open",
+      "name": "Mobile Nav Open",
+      "description": "Mobile navigation slides down",
+      "usedOn": ["menu-button → nav-menu"],
+      "trigger": { "type": "CLICK", "target": ".menu-button" },
+      "actions": [
+        {
+          "target": ".nav-menu",
+          "property": "height",
+          "from": "0",
+          "to": "90vh",
+          "duration": 500,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initMobileNav()"
+    },
+    {
+      "id": "navbar-scroll-bg",
+      "name": "Navbar Scroll Background",
+      "description": "Navbar transitions from transparent to solid white background at ~10% scroll progress",
+      "usedOn": ["navbar"],
+      "trigger": { "type": "SCROLL_POSITION", "scrollOffsetValue": 10, "scrollOffsetUnit": "%" },
+      "actions": [
+        {
+          "target": ".navbar",
+          "property": "background-color",
+          "from": "transparent",
+          "to": "var(--white)",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".navbar",
+          "property": "box-shadow",
+          "from": "none",
+          "to": "0 1px 6px rgba(0,0,0,0.08)",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initNavbarScroll()"
+    },
+    {
+      "id": "about-counter-ticker",
+      "name": "About Counter Ticker",
+      "description": "Numbers animate from 0 to target value when scrolled into view, using a custom easing curve",
+      "usedOn": ["[data-counter-target]"],
+      "trigger": { "type": "SCROLL_INTO_VIEW", "scrollOffsetValue": 30, "scrollOffsetUnit": "%" },
+      "actions": [
+        {
+          "target": "self",
+          "property": "textContent",
+          "from": "0",
+          "to": "data-counter-target value",
+          "duration": 2500,
+          "easing": "cubic-bezier(0.702, 0.311, 0.292, 0.983)"
+        }
+      ],
+      "implementation": "JS — see interactions/webflow-interactions.js → initCounterTicker()"
+    },
+    {
+      "id": "nav-bracket-fade",
+      "name": "Nav Bracket Fade",
+      "description": "Decorative [ ] brackets around nav links fade in on hover",
+      "usedOn": ["nav-menu-link"],
+      "trigger": { "type": "MOUSE_OVER", "target": ".nav-menu-link" },
+      "resetTrigger": { "type": "MOUSE_OUT", "target": ".nav-menu-link" },
+      "actions": [
+        {
+          "target": ".nav-menu-side",
+          "property": "opacity",
+          "from": 0,
+          "to": 1,
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "CSS — see interactions/hover-effects.css"
+    },
+    {
+      "id": "footer-text-swap",
+      "name": "Footer Link Text Swap",
+      "description": "Footer menu links use the same double-label text swap animation as buttons",
+      "usedOn": ["footer-menu-link"],
+      "trigger": { "type": "MOUSE_OVER", "target": ".footer-menu-link" },
+      "resetTrigger": { "type": "MOUSE_OUT", "target": ".footer-menu-link" },
+      "actions": [
+        {
+          "target": ".footer-menu._01",
+          "property": "transform.translateY",
+          "from": "0%",
+          "to": "-110%",
+          "duration": 400,
+          "easing": "ease"
+        },
+        {
+          "target": ".footer-menu._02",
+          "property": "transform.translateY",
+          "from": "100%",
+          "to": "0%",
+          "duration": 400,
+          "easing": "ease"
+        }
+      ],
+      "implementation": "CSS — see interactions/hover-effects.css"
+    }
+  ]
+}

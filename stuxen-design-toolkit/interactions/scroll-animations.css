@@ -1,0 +1,76 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — SCROLL ANIMATIONS (CSS)
+   Source: stuxen.webflow.io (Webflow IX2 preset: slideInBottom)
+
+   Webflow uses SCROLL_INTO_VIEW triggers with slideInBottom effect.
+   Elements slide up from below with staggered delays as they enter viewport.
+
+   To use: add `data-scroll-reveal` attribute and a delay class.
+   Then initialize with the JS in webflow-interactions.js, OR use pure CSS below.
+   ============================================================================= */
+
+/* ── SCROLL REVEAL BASE ────────────────────────────────────────────────────── */
+
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+[data-scroll-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── STAGGERED DELAYS ────────────────────────────────────────────────────────
+   Webflow uses staggered delays: 0ms, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms
+   Apply these to sequential siblings for the cascade effect.
+*/
+
+[data-scroll-reveal][data-delay="0"]   { transition-delay: 0ms; }
+[data-scroll-reveal][data-delay="100"] { transition-delay: 100ms; }
+[data-scroll-reveal][data-delay="200"] { transition-delay: 200ms; }
+[data-scroll-reveal][data-delay="300"] { transition-delay: 300ms; }
+[data-scroll-reveal][data-delay="400"] { transition-delay: 400ms; }
+[data-scroll-reveal][data-delay="500"] { transition-delay: 500ms; }
+[data-scroll-reveal][data-delay="600"] { transition-delay: 600ms; }
+
+/* ── SLIDE FROM LEFT ───────────────────────────────────────────────────────── */
+
+[data-scroll-reveal="slide-left"] {
+  transform: translateX(-40px);
+}
+
+[data-scroll-reveal="slide-left"].is-visible {
+  transform: translateX(0);
+}
+
+/* ── SLIDE FROM RIGHT ──────────────────────────────────────────────────────── */
+
+[data-scroll-reveal="slide-right"] {
+  transform: translateX(40px);
+}
+
+[data-scroll-reveal="slide-right"].is-visible {
+  transform: translateX(0);
+}
+
+/* ── SCALE UP ──────────────────────────────────────────────────────────────── */
+
+[data-scroll-reveal="scale"] {
+  transform: scale(0.9);
+}
+
+[data-scroll-reveal="scale"].is-visible {
+  transform: scale(1);
+}
+
+/* ── FADE ONLY ─────────────────────────────────────────────────────────────── */
+
+[data-scroll-reveal="fade"] {
+  transform: none;
+}
+
+[data-scroll-reveal="fade"].is-visible {
+  opacity: 1;
+}

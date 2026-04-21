@@ -49,8 +49,24 @@ function init() {
 
 function renderHeader(p) {
   setText(document.getElementById('projectTitle'), p.title || '(untitled)');
-  document.title = `${p.title || 'Project'} - Project Tracker`;
+  document.title = `${p.title || 'Commission'} · The Tracker`;
   document.getElementById('statusDropdown').value = p.status || 'new';
+
+  const dateEl = document.getElementById('articleDate');
+  if (dateEl) {
+    const created = p.createdAt ? new Date(p.createdAt) : null;
+    if (created && !isNaN(created.getTime())) {
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      setText(dateEl, `Filed · ${String(created.getDate()).padStart(2,'0')} ${months[created.getMonth()]} ${created.getFullYear()}`);
+    } else {
+      setText(dateEl, 'Filed · today');
+    }
+  }
+
+  const bylineEl = document.getElementById('articleByline');
+  if (bylineEl) {
+    setText(bylineEl, p.assignee ? `By ${p.assignee}` : 'Unbylined');
+  }
 }
 
 function renderSummary(p) {
@@ -59,14 +75,21 @@ function renderSummary(p) {
   const parts = [
     ['Client',    p.clientName],
     ['Platform',  p.platform],
-    ['Price',     p.price],
+    ['Fee',       p.price],
     ['Deadline',  p.deadline],
-    ['Assignee',  p.assignee],
-  ].filter(([, v]) => Boolean(v));
+    ['Filed by',  p.assignee],
+  ];
   for (const [label, value] of parts) {
-    const chip = document.createElement('span');
+    const chip = document.createElement('div');
     chip.className = 'summary-chip';
-    setText(chip, `${label}: ${value}`);
+    const lab = document.createElement('span');
+    lab.className = 'label';
+    setText(lab, label);
+    const val = document.createElement('span');
+    val.className = 'val';
+    setText(val, value || '—');
+    chip.appendChild(lab);
+    chip.appendChild(val);
     el.appendChild(chip);
   }
 }

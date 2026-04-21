@@ -1,0 +1,178 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — BUTTON COMPONENTS
+   Source: stuxen.webflow.io
+
+   Two button types:
+   1. Primary Button — solid purple pill with arrow icon
+   2. More Button — text link with arrow, hover reveals underline variant
+
+   Both use a dual-text/dual-arrow swap animation on hover.
+   ============================================================================= */
+
+/* ── PRIMARY BUTTON ────────────────────────────────────────────────────────── */
+
+/*
+  Structure:
+  <a class="primary-button" href="#">
+    <div class="primary-btn-text-wrap">
+      <div class="primary-btn-text _01">Get Started</div>
+      <div class="primary-btn-text _02">Get Started</div>
+    </div>
+    <div class="primary-btn-arrow-wrapper">
+      <div class="primary-btn-arrow-wrap">
+        <img class="primary-btn-arrow _01" src="icons/buttons/primary-btn-arrow.svg" alt="">
+        <img class="primary-btn-arrow _02" src="icons/buttons/primary-btn-arrow.svg" alt="">
+      </div>
+    </div>
+  </a>
+*/
+
+.primary-button {
+  z-index: 1;
+  gap: 16px;
+  border: 1px solid var(--primary-clr);
+  border-radius: var(--_radius---radius-xl);
+  background-color: var(--primary-clr);
+  color: var(--white);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  letter-spacing: var(--_letter-spacing---ls-tighter);
+  text-transform: capitalize;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6px 6px 6px 24px;
+  text-decoration: none;
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.primary-btn-arrow-wrapper {
+  border: 1px solid var(--primary-clr);
+  background-color: var(--white);
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.primary-btn-text-wrap {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn-text._02 {
+  position: absolute;
+}
+
+.primary-btn-arrow-wrap {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn-arrow._02 {
+  position: absolute;
+}
+
+/* ── MORE BUTTON (text link with arrow) ────────────────────────────────────── */
+
+/*
+  Structure:
+  <a class="more-button" href="#">
+    <div class="more-btn-text-wrap">
+      <div class="more-btn-text _01">Read More</div>
+      <div class="more-btn-text _02">Read More</div>
+    </div>
+    <div class="more-btn-arrow-wrap">
+      <img class="more-btn-arrow _01" src="icons/buttons/card-arrow.svg" alt="">
+      <img class="more-btn-arrow _02" src="icons/buttons/more-btn-arrow-hover.svg" alt="">
+    </div>
+  </a>
+*/
+
+.more-button {
+  gap: var(--_spacing---space-xs);
+  color: var(--secondary-clr);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  text-transform: capitalize;
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.more-btn-text-wrap {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.more-btn-text._02 {
+  color: var(--primary-clr);
+  text-decoration: underline;
+  position: absolute;
+}
+
+.more-btn-arrow-wrap {
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.more-btn-arrow._02 {
+  position: absolute;
+}
+
+/* ── SUB-TITLE BADGE ───────────────────────────────────────────────────────── */
+
+/*
+  Structure:
+  <div class="sub-title-wrap">
+    <div class="sub-title-dot"></div>
+    <div class="sub-title">Section Label</div>
+  </div>
+*/
+
+.sub-title-wrap {
+  gap: 8px;
+  border: 1px solid var(--dark-12);
+  background-color: var(--white);
+  border-radius: 48px;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 16px;
+  display: inline-flex;
+}
+
+.sub-title-dot {
+  background-color: var(--primary-clr);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+
+.sub-title {
+  line-height: var(--_font-typography---line-height--line-height-comfortable);
+  font-weight: var(--_font-typography---font-weight--font-weight-medium);
+  text-transform: uppercase;
+}

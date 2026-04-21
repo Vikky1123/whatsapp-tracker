@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "source": "stuxen.webflow.io",
+    "totalAssets": 58,
+    "imageFormats": ["avif", "png"],
+    "iconFormat": "svg",
+    "fontFormat": "woff2"
+  },
+  "images": {
+    "hero": [
+      { "file": "images/hero/hero-slider-bg.avif", "description": "Hero section background" },
+      { "file": "images/hero/hero-img-0.avif", "description": "Hero slider image 1" },
+      { "file": "images/hero/hero-img-1.avif", "description": "Hero slider image 2" },
+      { "file": "images/hero/hero-img-2.avif", "description": "Hero slider image 3" }
+    ],
+    "about": [
+      { "file": "images/about/about-v1-img.avif", "description": "About section main image" },
+      { "file": "images/about/about-banner-img.avif", "description": "About banner main" },
+      { "file": "images/about/about-banner-bg-shape.avif", "description": "About banner background shape" },
+      { "file": "images/about/about-banner-left.avif", "description": "About banner left decorative" },
+      { "file": "images/about/about-banner-right.avif", "description": "About banner right decorative" },
+      { "file": "images/about/values-img.avif", "description": "Values section image" }
+    ],
+    "projects": [
+      { "file": "images/projects/project-thumbnail-01.avif", "description": "Project 1 thumbnail" },
+      { "file": "images/projects/project-thumbnail-02.png", "description": "Project 2 thumbnail" },
+      { "file": "images/projects/project-thumbnail-03.avif", "description": "Project 3 thumbnail" },
+      { "file": "images/projects/project-thumbnail-03-alt.avif", "description": "Project 3 alt thumbnail" },
+      { "file": "images/projects/project-thumbnail-05.avif", "description": "Project 5 thumbnail" }
+    ],
+    "blog": [
+      { "file": "images/blog/blog-thumbnail-01.avif", "description": "Blog post 1 thumbnail" },
+      { "file": "images/blog/blog-thumbnail-02.avif", "description": "Blog post 2 thumbnail" },
+      { "file": "images/blog/blog-thumbnail-04.avif", "description": "Blog post 4 thumbnail" },
+      { "file": "images/blog/blog-thumbnail-04-alt.avif", "description": "Blog post 4 alt" },
+      { "file": "images/blog/blog-thumbnail-05.avif", "description": "Blog post 5 thumbnail" },
+      { "file": "images/blog/blog-thumbnail-06.avif", "description": "Blog post 6 thumbnail" },
+      { "file": "images/blog/blog-author-avatar-01.avif", "description": "Blog author 1 avatar" },
+      { "file": "images/blog/blog-author-avatar-02.avif", "description": "Blog author 2 avatar" },
+      { "file": "images/blog/blog-author-avatar-03.avif", "description": "Blog author 3 avatar" }
+    ],
+    "testimonials": [
+      { "file": "images/testimonials/testimonials-tabs-img.avif", "description": "Testimonials tab image" },
+      { "file": "images/testimonials/testimonials-author-01.avif", "description": "Testimonial author 1" },
+      { "file": "images/testimonials/testimonials-author-03.avif", "description": "Testimonial author 3" }
+    ]
+  },
+  "icons": {
+    "nav": [
+      { "file": "icons/nav/nav-icon.svg", "description": "Navigation hamburger icon" }
+    ],
+    "buttons": [
+      { "file": "icons/buttons/primary-btn-arrow.svg", "description": "Primary button arrow (dark)" },
+      { "file": "icons/buttons/more-btn-arrow-hover.svg", "description": "More button arrow hover state" },
+      { "file": "icons/buttons/card-arrow.svg", "description": "Card/link arrow icon" }
+    ],
+    "about": [
+      { "file": "icons/about/about-icon-0.svg", "description": "About feature icon default" },
+      { "file": "icons/about/about-icon-1.svg", "description": "About feature icon 1" },
+      { "file": "icons/about/about-icon-2.svg", "description": "About feature icon 2" },
+      { "file": "icons/about/about-icon-3.svg", "description": "About feature icon 3" }
+    ],
+    "projects": [
+      { "file": "icons/projects/project-arrow.svg", "description": "Project card arrow" },
+      { "file": "icons/projects/project-icon.svg", "description": "Project icon default" },
+      { "file": "icons/projects/project-icon-01.svg", "description": "Project icon 1" },
+      { "file": "icons/projects/project-icon-02.svg", "description": "Project icon 2" },
+      { "file": "icons/projects/project-icon-03.svg", "description": "Project icon 3" },
+      { "file": "icons/projects/project-icon-04.svg", "description": "Project icon 4" }
+    ],
+    "testimonials": [
+      { "file": "icons/testimonials/testimonials-icon.svg", "description": "Testimonials section icon" },
+      { "file": "icons/testimonials/rating-star.svg", "description": "Rating star" },
+      { "file": "icons/testimonials/quote-icon-1.svg", "description": "Quote icon variant 1" },
+      { "file": "icons/testimonials/quote-icon-2.svg", "description": "Quote icon variant 2" }
+    ],
+    "blog": [
+      { "file": "icons/blog/blog-date-icon.svg", "description": "Blog post date calendar icon" },
+      { "file": "icons/blog/slider-arrow-left.svg", "description": "Blog slider left arrow" },
+      { "file": "icons/blog/slider-arrow-right.svg", "description": "Blog slider right arrow" }
+    ],
+    "faq": [
+      { "file": "icons/faq/faq-icon-plus.svg", "description": "FAQ expand icon (+)" },
+      { "file": "icons/faq/faq-icon-minus.svg", "description": "FAQ collapse icon (-)" }
+    ],
+    "misc": [
+      { "file": "icons/misc/pricing-list-icon.svg", "description": "Pricing feature list checkmark" },
+      { "file": "icons/misc/favicon.svg", "description": "Site favicon" },
+      { "file": "icons/misc/cart.svg", "description": "Shopping cart icon" }
+    ]
+  },
+  "fonts": {
+    "primary": {
+      "family": "Poppins",
+      "weights": [300, 400, 500, 600, 700, 800],
+      "format": "woff2",
+      "source": "Google Fonts",
+      "localFiles": 14,
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    },
+    "secondary": {
+      "family": "Inter",
+      "weights": "100-900 (variable)",
+      "format": "woff2",
+      "source": "Google Fonts",
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    },
+    "tertiary": {
+      "family": "Roboto",
+      "source": "Google Fonts",
+      "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    },
+    "mono": {
+      "family": "Roboto Mono",
+      "source": "Google Fonts",
+      "url": "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+    }
+  }
+}

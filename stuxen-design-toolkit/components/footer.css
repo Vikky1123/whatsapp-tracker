@@ -1,0 +1,118 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — FOOTER COMPONENT
+   Source: stuxen.webflow.io
+
+   Structure:
+   <footer class="footer">
+     <div class="container">
+       <div class="box-wrapper">
+         <div class="footer-menu-wrapper">
+           <div class="footer-logo-wrap">
+             <a class="footer-logo-link" href="/"><img ...></a>
+             <p class="regular-text">Company description</p>
+           </div>
+           <div class="footer-menu-wrap">
+             <div class="footer-menu">
+               <div class="footer-menu-title">Pages</div>
+               <div class="footer-menu-flex">
+                 <a class="footer-menu-link" href="#">Home</a>
+                 <a class="footer-menu-link" href="#">About</a>
+               </div>
+             </div>
+             <div class="footer-menu _02">
+               <div class="footer-menu-title">Utility</div>
+               <div class="footer-menu-flex">
+                 <a class="footer-menu-link" href="#">Style Guide</a>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="copyright-wrapper">
+           <div class="copyright-text">
+             Copyright 2025 <a class="copyright-text-link" href="#">Starter</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </footer>
+   ============================================================================= */
+
+.footer {
+  padding-top: 100px;
+  padding-bottom: 34px;
+}
+
+.footer-menu-wrapper {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.copyright-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.footer-menu-wrap {
+  gap: var(--_spacing---space-md-lg);
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.footer-menu-title {
+  color: var(--primary-clr);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  letter-spacing: var(--_letter-spacing---ls-tighter);
+}
+
+.footer-menu-flex {
+  gap: 16px;
+  flex-flow: column;
+  display: flex;
+}
+
+.footer-menu-link {
+  color: var(--dark-70);
+  font-size: var(--_font-sizing---body--text-lg);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  letter-spacing: var(--_letter-spacing---ls-tight);
+  text-decoration: none;
+}
+
+.footer-menu._02 {
+  color: var(--secondary-clr);
+}
+
+.copyright-text {
+  color: var(--secondary-clr);
+  font-size: var(--_font-sizing---body--text-xs);
+  letter-spacing: var(--_letter-spacing---ls-tightest);
+}
+
+.copyright-text-link {
+  color: var(--primary-clr);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  .footer { padding-top: 80px; }
+  .footer-menu-wrapper {
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .footer-menu-flex { gap: 15px; }
+}
+
+@media screen and (max-width: 479px) {
+  .footer { padding-top: 60px; }
+  .footer-menu-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  .footer-menu-flex { gap: 10px; }
+}

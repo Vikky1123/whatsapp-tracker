@@ -1,0 +1,169 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — NAVIGATION COMPONENT
+   Source: stuxen.webflow.io
+
+   Structure:
+   <nav class="navbar">
+     <div class="container">
+       <div class="nav-content-wrap">
+         <a class="nav-logo-link" href="/">
+           <img class="nav-logo" src="..." alt="Logo">
+         </a>
+         <div class="nav-menu-wrapper">
+           <div class="nav-menu">
+             <!-- Nav links -->
+             <a class="nav-menu-link" href="#">
+               <div class="nav-dd-text _01">Home</div>
+               <div class="nav-dd-text _02">Home</div>
+             </a>
+             <!-- Dropdown link -->
+             <div class="nav-dd">
+               <div class="nav-dd-toggle">
+                 <a class="nav-menu-link">
+                   <div class="nav-dd-text _01">Pages</div>
+                   <div class="nav-dd-text _02">Pages</div>
+                 </a>
+               </div>
+               <div class="nav-dd-list">
+                 <div class="nav-dd-side">
+                   <a class="nav-dd-link" href="#">Page Name</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="nav-button-wrapper">
+             <a class="primary-button" href="#">...</a>
+           </div>
+         </div>
+         <div class="menu-button"><!-- Mobile hamburger --></div>
+       </div>
+     </div>
+   </nav>
+   ============================================================================= */
+
+.navbar {
+  background-color: var(--transparent);
+  position: fixed;
+  inset: 0% 0% auto;
+  z-index: 100;
+}
+
+.nav-content-wrap {
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+}
+
+.nav-logo-link {
+  flex: none;
+}
+
+.nav-menu-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.nav-menu {
+  width: 100%;
+  max-width: 635px;
+}
+
+.nav-menu-link {
+  gap: 2px;
+  color: var(--dark-70);
+  font-size: var(--_font-sizing---body--text-sm);
+  line-height: var(--_font-typography---line-height--line-height-normal);
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button-wrapper {
+  gap: 20px;
+  flex: none;
+  justify-content: flex-start;
+  align-items: center;
+  display: inline-flex;
+}
+
+/* ── Nav Dropdown ──────────────────────────────────────────────────────────── */
+
+.nav-dd-text {
+  /* Both _01 and _02 labels for swap animation */
+}
+
+.nav-dd-text._02 {
+  position: absolute;
+  transform: translateY(110%);
+}
+
+.nav-dd-list {
+  height: 0;
+  overflow: hidden;
+}
+
+.nav-dd-side {
+  opacity: 0;
+}
+
+/* ── Mobile Nav ────────────────────────────────────────────────────────────── */
+
+.menu-button {
+  display: none;
+}
+
+.nav-button-wrap.responsive-on {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .nav-content-wrap {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .nav-menu-wrapper {
+    gap: var(--_spacing---space-md);
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+  }
+  .nav-menu {
+    background-color: var(--white);
+    max-width: 100%;
+    height: 90vh;
+    overflow: auto;
+  }
+  .nav-button-wrapper {
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+  }
+  .menu-button {
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+}

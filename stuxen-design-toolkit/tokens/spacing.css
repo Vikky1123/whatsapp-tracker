@@ -1,0 +1,45 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — SPACING TOKENS
+   Source: stuxen.webflow.io
+
+   The spacing system uses a semantic naming convention:
+     --_spacing---space-{size}     = margin/gap spacing
+     --_spacing---padding--pd-{size} = padding values
+   ============================================================================= */
+
+:root {
+  /* ── Space Scale (margins, gaps) ─────────────────────────────────────────── */
+  --_spacing---space-xxs:      8px;    /* Tightest: icon gaps, chip padding */
+  --_spacing---space-xs:       12px;   /* Small: grid gaps, list items */
+  --_spacing---space-sm:       16px;   /* Base small: compact spacing */
+  --_spacing---space-sm-alt:   17px;   /* Slight variation for optical balance */
+  --_spacing---space-md:       20px;   /* Base medium: general purpose */
+  --_spacing---space-md-alt:   22px;   /* Medium variant */
+  --_spacing---space-md-lg:    24px;   /* Between medium and large */
+  --_spacing---space-lg:       30px;   /* Large spacing */
+  --_spacing---space-lg-alt:   32px;   /* Large variant */
+  --_spacing---space-lg-md:    36px;   /* Large-medium bridge */
+  --_spacing---space-xl:       40px;   /* Extra large */
+  --_spacing---space-xl-alt:   45px;   /* Extra large variant */
+  --_spacing---space-2xl:      52px;   /* 2x extra large */
+  --_spacing---space-5xl:      50px;   /* 5x extra large (special) */
+  --_spacing---space-3xl:      60px;   /* 3x extra large */
+  --_spacing---space-3xl-md:   64px;   /* 3x extra large medium */
+  --_spacing---space-3xl-alt:  68px;   /* 3x extra large variant */
+  --_spacing---space-2xl-alt:  70px;   /* 2x extra large variant */
+  --_spacing---space-4xl:      80px;   /* 4x extra large — major sections */
+
+  /* ── Padding Scale ───────────────────────────────────────────────────────── */
+  --_spacing---padding--pd-tiny:       12px;   /* Chip/badge internal padding */
+  --_spacing---padding--pd-xxs:        20px;   /* Compact card padding */
+  --_spacing---padding--pd-xs:         24px;   /* Small card padding */
+  --_spacing---padding--pd-xs-lg:      32px;   /* Small-large bridge */
+  --_spacing---padding--pd-sm:         37px;   /* Small section padding */
+  --_spacing---padding--pd-sm-md:      40px;   /* Medium section padding */
+  --_spacing---padding--pd-md:         48px;   /* Base section padding */
+  --_spacing---padding--pd-md-lg:      52px;   /* Medium-large bridge */
+  --_spacing---padding--pd-lg:         60px;   /* Large section padding */
+  --_spacing---padding--pd-xl:         92px;   /* Extra large section */
+  --_spacing---padding--pd-xxl:        96px;   /* Major section top/bottom */
+  --_spacing---padding--pd-section-lg: 100px;  /* Full section padding */
+}

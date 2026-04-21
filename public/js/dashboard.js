@@ -8,10 +8,12 @@ import { db } from './firebase-init.js';
 
 const STATUS_LABELS = {
   new: 'New', quoted: 'Quoted', awaiting_client: 'Awaiting',
-  approved: 'Approved', in_progress: 'In Progress', review: 'Review',
+  approved: 'Approved', in_progress: 'In progress', review: 'Review',
   revisions: 'Revisions', delivered: 'Delivered', paid: 'Paid',
 };
 const STATUS_ORDER = ['new','quoted','awaiting_client','approved','in_progress','review','revisions','delivered','paid'];
+const ACTIVE_STATUSES = new Set(['in_progress','review','revisions','approved']);
+const WAITING_STATUSES = new Set(['awaiting_client','quoted']);
 
 let allProjects = [];
 let activeStatus = 'all';
@@ -86,7 +88,7 @@ function bindUI() {
     menu.hidden = true;
     try {
       const { projectCount } = await exportBackup();
-      alert(`Backup downloaded (${projectCount} projects).`);
+      alert(`Backup downloaded (${projectCount} files).`);
     } catch (err) {
       alert('Backup failed: ' + (err && err.message ? err.message : err));
     }
@@ -108,8 +110,21 @@ function bindUI() {
 }
 
 function render() {
+  renderStats();
   renderChips();
   renderList();
+}
+
+function renderStats() {
+  let active = 0, waiting = 0, paid = 0;
+  for (const p of allProjects) {
+    if (ACTIVE_STATUSES.has(p.status)) active++;
+    else if (WAITING_STATUSES.has(p.status)) waiting++;
+    else if (p.status === 'paid') paid++;
+  }
+  setText(document.getElementById('statActive'),  String(active).padStart(2, '0'));
+  setText(document.getElementById('statWaiting'), String(waiting).padStart(2, '0'));
+  setText(document.getElementById('statPaid'),    String(paid).padStart(2, '0'));
 }
 
 function renderChips() {
@@ -124,7 +139,7 @@ function renderChips() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'chip' + (activeStatus === c.key ? ' chip-active' : '');
-    setText(btn, `${c.label} (${counts[c.key] || 0})`);
+    setText(btn, `${c.label} · ${counts[c.key] || 0}`);
     btn.addEventListener('click', () => {
       activeStatus = c.key;
       render();
@@ -150,9 +165,9 @@ function renderList() {
   }
   emptyEl.hidden = true;
 
-  for (const p of items) {
-    listEl.appendChild(projectCard(p));
-  }
+  items.forEach((p, i) => {
+    listEl.appendChild(projectCard(p, i + 1));
+  });
 }
 
 function matchesSearch(p, q) {
@@ -174,41 +189,63 @@ function sortProjects(items, mode) {
   }
 }
 
-function projectCard(p) {
+function projectCard(p, index) {
   const card = document.createElement('article');
   card.className = 'project-card';
   card.addEventListener('click', () => {
     window.location.href = `project.html?id=${encodeURIComponent(p.id)}`;
   });
 
-  const titleRow = document.createElement('div');
-  titleRow.className = 'project-card-title-row';
+  // № ordinal
+  const num = document.createElement('div');
+  num.className = 'project-num tabular';
+  setText(num, String(index).padStart(2, '0'));
+  card.appendChild(num);
 
-  const h = document.createElement('h3');
-  setText(h, p.title || '(untitled)');
-  titleRow.appendChild(h);
+  // Main: title + client line
+  const main = document.createElement('div');
+  main.className = 'project-main';
+  const title = document.createElement('h3');
+  title.className = 'project-title';
+  setText(title, p.title || '(untitled)');
+  main.appendChild(title);
 
-  const badge = document.createElement('span');
-  badge.className = `status-badge status-${p.status || 'new'}`;
-  setText(badge, STATUS_LABELS[p.status] || 'New');
-  titleRow.appendChild(badge);
-  card.appendChild(titleRow);
+  const client = document.createElement('div');
+  client.className = 'project-client';
+  const clientParts = [];
+  if (p.clientName) clientParts.push(p.clientName);
+  if (p.platform)   clientParts.push(p.platform);
+  setText(client, clientParts.join('  ·  ') || 'Client unknown');
+  main.appendChild(client);
+  card.appendChild(main);
 
-  const sub = document.createElement('div');
-  sub.className = 'project-card-sub';
-  const parts = [];
-  if (p.clientName) parts.push(`Client: ${p.clientName}`);
-  if (p.price)      parts.push(p.price);
-  if (p.assignee)   parts.push(p.assignee);
-  setText(sub, parts.join('  -  '));
-  card.appendChild(sub);
+  // Status
+  const status = document.createElement('div');
+  status.className = 'project-status';
+  const dot = document.createElement('span');
+  dot.className = `status-dot status-${p.status || 'new'}`;
+  status.appendChild(dot);
+  const statusText = document.createElement('span');
+  setText(statusText, STATUS_LABELS[p.status] || 'New');
+  status.appendChild(statusText);
+  card.appendChild(status);
 
+  // Price
+  const price = document.createElement('div');
+  price.className = 'project-price tabular';
+  setText(price, p.price || '—');
+  card.appendChild(price);
+
+  // Assignee
+  const assignee = document.createElement('div');
+  assignee.className = 'project-assignee';
+  setText(assignee, p.assignee || 'anon');
+  card.appendChild(assignee);
+
+  // Meta
   const meta = document.createElement('div');
-  meta.className = 'project-card-meta';
-  const updated = p.updatedAt ? relativeTime(p.updatedAt) : '';
-  const msgs = p.messages ? Object.keys(p.messages).length : 0;
-  const notes = p.notes ? Object.keys(p.notes).length : 0;
-  setText(meta, `${updated}  -  ${msgs} messages  -  ${notes} notes`);
+  meta.className = 'project-meta';
+  setText(meta, p.updatedAt ? relativeTime(p.updatedAt) : '—');
   card.appendChild(meta);
 
   return card;
@@ -219,7 +256,7 @@ function openChangelog() {
   const list = document.getElementById('changelogList');
   list.replaceChildren();
   const li = document.createElement('li');
-  setText(li, 'Loading...');
+  setText(li, 'Loading…');
   list.appendChild(li);
   dlg.showModal();
 
@@ -236,7 +273,7 @@ function openChangelog() {
     }
     for (const e of entries) {
       const li = document.createElement('li');
-      setText(li, `${formatDate(e.at)} - ${e.action} by ${e.author}${e.targetId ? ` (${e.targetId})` : ''}`);
+      setText(li, `${formatDate(e.at)} · ${e.action} · ${e.author}${e.targetId ? ` (${e.targetId})` : ''}`);
       list.appendChild(li);
     }
   }, { onlyOnce: true });

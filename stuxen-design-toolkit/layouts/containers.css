@@ -1,0 +1,121 @@
+/* =============================================================================
+   STUXEN DESIGN TOOLKIT — CONTAINER & LAYOUT PATTERNS
+   Source: stuxen.webflow.io
+   ============================================================================= */
+
+/* ── Container ─────────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1326px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ── Section ───────────────────────────────────────────────────────────────── */
+.section {
+  padding-top: var(--_spacing---padding--pd-section-lg);
+  padding-bottom: var(--_spacing---padding--pd-section-lg);
+}
+
+/* ── Box Wrapper (white card container with subtle border-radius) ──────────── */
+.box-wrapper {
+  z-index: 1;
+  border-radius: var(--_radius---radius-xs);
+  background-color: var(--white);
+  padding: 100px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Box Decorative Lines (vertical separator lines inside boxes) ──────────── */
+.box-line {
+  z-index: -1;
+  background-color: var(--dark-12);
+  width: 1px;
+  position: absolute;
+  inset: 0% 0% 0% auto;
+}
+
+.box-line.right   { right: 324px; }
+.box-line.middle  { right: 50%; }
+.box-line.left    { inset: 0% auto 0% 324px; }
+
+/* ── Section Title Wrapper (centered header pattern) ───────────────────────── */
+.box-title-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--_spacing---space-4xl);
+  gap: var(--_spacing---space-lg-md);
+  text-align: center;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 487px;
+  display: flex;
+}
+
+/* ── Section Title Flex (title left + description right) ───────────────────── */
+.section-title-flex {
+  justify-content: space-between;
+  align-items: flex-end;
+  display: flex;
+}
+
+.section-title-wrapper {
+  margin-bottom: var(--_spacing---space-3xl-alt);
+  text-align: center;
+}
+
+/* ── Grid Patterns ─────────────────────────────────────────────────────────── */
+
+/* 2-column project grid */
+.grid-2col {
+  grid-column-gap: var(--_spacing---space-xs);
+  grid-row-gap: var(--_spacing---space-xs);
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+/* 3-column grid */
+.grid-3col {
+  grid-column-gap: var(--_spacing---space-xs);
+  grid-row-gap: var(--_spacing---space-xs);
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+/* ── Responsive Layout Changes ─────────────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  .box-wrapper {
+    padding: 80px 20px;
+  }
+  .box-line.right { right: 100px; }
+  .box-line.left  { left: 100px; }
+  .section-title-flex {
+    gap: 20px;
+    text-align: center;
+    flex-flow: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .box-wrapper {
+    padding: 50px 15px;
+  }
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .box-wrapper {
+    padding: 40px 12px;
+  }
+}

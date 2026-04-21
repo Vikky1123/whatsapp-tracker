@@ -3,61 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project - Project Tracker</title>
+  <title>Commission · The Tracker</title>
   <link rel="icon" href="favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="stuxen-design-toolkit/tokens/index.css">
-  <link rel="stylesheet" href="stuxen-design-toolkit/layouts/responsive.css">
-  <link rel="stylesheet" href="stuxen-design-toolkit/layouts/containers.css">
-  <link rel="stylesheet" href="stuxen-design-toolkit/components/index.css">
-  <link rel="stylesheet" href="stuxen-design-toolkit/interactions/hover-effects.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="project-page">
-  <header class="top-bar">
-    <div class="top-bar-left">
-      <a href="dashboard.html" class="back-link">&larr; Back</a>
-      <h1 id="projectTitle" class="project-title"></h1>
-    </div>
-    <div class="top-bar-right">
-      <select id="statusDropdown" class="status-dropdown" aria-label="Status">
-        <option value="new">New</option>
-        <option value="quoted">Quoted</option>
-        <option value="awaiting_client">Awaiting client</option>
-        <option value="approved">Approved</option>
-        <option value="in_progress">In progress</option>
-        <option value="review">Review</option>
-        <option value="revisions">Revisions</option>
-        <option value="delivered">Delivered</option>
-        <option value="paid">Paid</option>
-      </select>
-    </div>
+  <header class="masthead">
+    <div class="masthead-left">VOL. I · NO. 001</div>
+    <h1 class="masthead-title">The Tracker <span class="amp">&amp;</span> Archive</h1>
+    <div class="masthead-right" id="dateline"></div>
   </header>
 
-  <section class="summary-row" id="summaryRow"></section>
+  <div class="folio">
+    <span id="folioFrom"><a href="dashboard.html" class="back-link">&larr; Return to the ledger</a></span>
+    <span id="folioMiddle">Commission file</span>
+    <span id="folioPage"></span>
+  </div>
+
+  <section class="article-hero">
+    <div class="article-dateline">
+      <span id="articleDate"></span>
+      <span id="articleByline"></span>
+      <div class="article-status-wrap">
+        <select id="statusDropdown" class="status-dropdown" aria-label="Status">
+          <option value="new">Stage · New</option>
+          <option value="quoted">Stage · Quoted</option>
+          <option value="awaiting_client">Stage · Awaiting client</option>
+          <option value="approved">Stage · Approved</option>
+          <option value="in_progress">Stage · In progress</option>
+          <option value="review">Stage · Review</option>
+          <option value="revisions">Stage · Revisions</option>
+          <option value="delivered">Stage · Delivered</option>
+          <option value="paid">Stage · Paid</option>
+        </select>
+      </div>
+    </div>
+
+    <h1 id="projectTitle" class="project-title-big"></h1>
+
+    <div class="summary-row" id="summaryRow"></div>
+  </section>
 
   <nav class="tab-bar" role="tablist">
-    <button class="tab tab-active" data-tab="conversation" role="tab">Conversation</button>
-    <button class="tab" data-tab="notes" role="tab">Notes</button>
-    <button class="tab" data-tab="details" role="tab">Details</button>
-    <button class="tab" data-tab="links" role="tab">Links</button>
+    <button class="tab tab-active" data-tab="conversation" role="tab">The conversation</button>
+    <button class="tab" data-tab="notes" role="tab">Notes &amp; decisions</button>
+    <button class="tab" data-tab="details" role="tab">The file</button>
+    <button class="tab" data-tab="links" role="tab">References</button>
   </nav>
 
   <section id="tab-conversation" class="tab-panel">
-    <button id="pasteBtn" class="btn-primary">+ Paste WhatsApp messages</button>
+    <button id="pasteBtn" class="btn-primary">+ Paste from WhatsApp</button>
     <div id="messagesList" class="messages-list"></div>
   </section>
 
   <section id="tab-notes" class="tab-panel" hidden>
     <form id="noteForm">
-      <label>Who <input id="noteAuthor" maxlength="100" placeholder="Your name"></label>
-      <textarea id="noteContent" maxlength="10000" placeholder="Decision, idea, question..."></textarea>
-      <button class="btn-primary" type="submit">Add note</button>
+      <label>Filed by <input id="noteAuthor" maxlength="100" placeholder="Your name"></label>
+      <label>Note <textarea id="noteContent" maxlength="10000" placeholder="Decision, idea, question…"></textarea></label>
+      <button class="btn-primary" type="submit">File this note</button>
     </form>
     <div id="notesList" class="notes-list"></div>
   </section>
@@ -67,48 +75,47 @@
       <label>Title <input id="dTitle" maxlength="200"></label>
       <label>Client name <input id="dClientName" maxlength="100"></label>
       <label>Platform <input id="dPlatform" maxlength="50"></label>
-      <label>Price <input id="dPrice" maxlength="50"></label>
+      <label>Fee <input id="dPrice" maxlength="50"></label>
       <label>Deadline <input id="dDeadline" type="date"></label>
-      <label>Assignee <input id="dAssignee" maxlength="100"></label>
-      <label>Client's request <textarea id="dClientRequest" maxlength="10000"></textarea></label>
+      <label>Filed by <input id="dAssignee" maxlength="100"></label>
+      <label>The client's request <textarea id="dClientRequest" maxlength="10000"></textarea></label>
       <label>Our approach <textarea id="dOurApproach" maxlength="10000"></textarea></label>
       <label>Deliverables <textarea id="dDeliverables" maxlength="10000"></textarea></label>
-      <label>Outcome <textarea id="dOutcome" maxlength="10000"></textarea></label>
-      <button class="btn-primary" type="submit">Save changes</button>
+      <label>Outcome &amp; lessons <textarea id="dOutcome" maxlength="10000"></textarea></label>
+      <button class="btn-primary" type="submit">Save to file</button>
     </form>
 
-    <hr>
     <div class="danger-zone">
-      <h3>Danger zone</h3>
-      <p>Delete this project and all its messages and notes.</p>
-      <button id="deleteBtn" class="btn-danger">Delete project</button>
+      <p>Delete this file permanently along with every note and message it holds.</p>
+      <button id="deleteBtn" class="btn-danger">Delete commission</button>
     </div>
   </section>
 
   <section id="tab-links" class="tab-panel" hidden>
     <form id="linkForm">
-      <label>Label <input id="linkLabel" maxlength="100"></label>
+      <label>Reference label <input id="linkLabel" maxlength="100"></label>
       <label>URL <input id="linkUrl" type="url" maxlength="500"></label>
-      <button class="btn-primary" type="submit">Add link</button>
+      <button class="btn-primary" type="submit">Add reference</button>
     </form>
     <ul id="linksList" class="links-list"></ul>
   </section>
 
   <dialog id="pasteDialog" class="dialog">
-    <h2>Paste WhatsApp messages</h2>
-    <textarea id="pasteRaw" placeholder="Paste here..." rows="10"></textarea>
-    <button id="previewBtn" type="button" class="btn-primary">Preview</button>
+    <h2>Paste from WhatsApp</h2>
+    <p class="kicker">Paste the conversation · we'll parse it</p>
+    <textarea id="pasteRaw" placeholder="Paste here…"></textarea>
+    <button id="previewBtn" type="button" class="btn-primary">Preview parse</button>
     <div id="pastePreview" class="paste-preview" hidden></div>
     <div class="dialog-buttons">
       <button id="pasteCancel" value="cancel">Cancel</button>
-      <button id="pasteImport" class="btn-primary" disabled>Import</button>
+      <button id="pasteImport" class="btn-primary" disabled>File it</button>
     </div>
   </dialog>
 
   <dialog id="deleteDialog" class="dialog">
-    <h2>Delete project</h2>
-    <p>Type the exact project title to confirm:</p>
-    <p><strong id="delTitleEcho"></strong></p>
+    <h2>Delete commission</h2>
+    <p class="kicker">Type the title to confirm</p>
+    <p><strong id="delTitleEcho" class="display-s"></strong></p>
     <input id="delConfirmInput" type="text" maxlength="200">
     <div class="dialog-buttons">
       <button id="delCancelBtn" value="cancel">Cancel</button>
@@ -116,8 +123,9 @@
     </div>
   </dialog>
 
-  <div id="offlinePill" class="offline-pill" hidden>&bull; offline - will sync</div>
+  <div id="offlinePill" class="offline-pill" hidden>Offline · will sync</div>
 
+  <script type="module" src="js/datestamp.js"></script>
   <script type="module" src="js/project.js"></script>
 </body>
 </html>
