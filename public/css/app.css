@@ -594,13 +594,16 @@ label input, label textarea, label select {
   color: var(--ink);
   transition: color 140ms ease;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 .project-main .project-client {
   font-family: var(--mono);
   font-size: 11px;
   color: var(--ink-60);
   letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
 }
+.project-main { min-width: 0; }
 
 /* Status "bracket" */
 .project-status {
@@ -699,6 +702,8 @@ label input, label textarea, label select {
   letter-spacing: -0.035em;
   margin: 0 0 var(--s-5);
   color: var(--ink);
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 
 .summary-row {
@@ -730,6 +735,7 @@ label input, label textarea, label select {
   font-size: 17px;
   color: var(--ink);
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
 }
 
 .status-dropdown {
@@ -791,6 +797,8 @@ label input, label textarea, label select {
   background: var(--surface);
   border: 1px solid var(--hairline);
   align-items: start;
+  min-width: 0;
+  max-width: 100%;
 }
 .msg-head {
   display: flex;
@@ -800,6 +808,7 @@ label input, label textarea, label select {
   font-size: 10px;
   letter-spacing: 0.08em;
   color: var(--ink-45);
+  min-width: 0;
 }
 .msg-head strong {
   font-family: var(--display);
@@ -808,6 +817,7 @@ label input, label textarea, label select {
   color: var(--ink);
   letter-spacing: -0.01em;
   text-transform: none;
+  overflow-wrap: anywhere;
 }
 .msg-time { color: var(--ink-45); letter-spacing: 0.08em; }
 .msg-body {
@@ -816,9 +826,12 @@ label input, label textarea, label select {
   line-height: 1.65;
   color: var(--ink-80);
   white-space: pre-wrap;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+  max-width: 100%;
 }
-.msg-body a { color: var(--violet-bright); text-decoration: underline; text-underline-offset: 3px; }
+.msg-body a { color: var(--violet-bright); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .msg-bubble.msg-attachment .msg-body {
   color: var(--ink-45);
   font-style: italic;
@@ -865,6 +878,9 @@ label input, label textarea, label select {
   color: var(--ink-80);
   margin-bottom: var(--s-3);
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* Details form */
