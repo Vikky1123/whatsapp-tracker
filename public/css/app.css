@@ -75,27 +75,35 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'ss01', 'ss02', 'cv11', 'tnum';
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
-/* Ambient purple glow in the upper-left, fixed */
+html { width: 100%; }
+body { width: 100%; min-height: 100vh; position: relative; }
+
+/* Ambient purple glow in the upper-left. Absolute (not fixed) so it gets clipped
+   by the html/body overflow-x: clip on small viewports. */
 body::before {
   content: '';
-  position: fixed;
+  position: absolute;
   top: -300px;
   left: -200px;
   width: 780px;
   height: 780px;
+  max-width: 120vw;
   background: radial-gradient(closest-side, rgba(139,92,255,0.22), rgba(139,92,255,0) 70%);
   pointer-events: none;
   z-index: 0;
 }
 body::after {
   content: '';
-  position: fixed;
+  position: absolute;
   right: -240px;
   bottom: -260px;
   width: 620px;
   height: 620px;
+  max-width: 120vw;
   background: radial-gradient(closest-side, rgba(213,255,91,0.06), rgba(213,255,91,0) 70%);
   pointer-events: none;
   z-index: 0;
@@ -1097,6 +1105,11 @@ label input, label textarea, label select {
 
 @media (max-width: 720px) {
   :root { --gutter: 16px; }
+
+  /* Prevent iOS zoom on input focus — must be 16px min */
+  input, textarea, select { font-size: 16px; }
+  .search-input { font-size: 14px; }
+
   .login-page { grid-template-columns: 1fr; }
   .login-art { border-right: 0; border-bottom: 1px solid var(--hairline); padding: var(--s-6); min-height: 240px; }
   .login-art .wordmark { font-size: 44px; }
@@ -1120,10 +1133,12 @@ label input, label textarea, label select {
   .filter-right { justify-content: space-between; width: 100%; }
   .filter-chips {
     overflow-x: auto;
+    overflow-y: hidden;
     flex-wrap: nowrap;
     padding-bottom: 6px;
-    margin-right: calc(-1 * var(--gutter));
-    padding-right: var(--gutter);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     scrollbar-width: none;
   }
   .filter-chips::-webkit-scrollbar { display: none; }

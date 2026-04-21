@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: T
+      - generic [ref=e5]: Tracker/
+    - searchbox "Search commissions, clients, conversations…" [ref=e6]
+    - generic [ref=e7]:
+      - button "+ New" [ref=e8] [cursor=pointer]
+      - button "Settings" [ref=e9] [cursor=pointer]: ···
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - paragraph [ref=e12]: ◎ The press / current state
+      - heading "Every commission, one place." [level=1] [ref=e13]:
+        - text: Every commission,
+        - emphasis [ref=e14]: one place.
+      - paragraph [ref=e15]: What the client asked for · how we went about it · what we shipped · what they paid.
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Active
+        - generic [ref=e19]: "02"
+      - generic [ref=e20]:
+        - generic [ref=e21]: Awaiting
+        - generic [ref=e22]: "01"
+      - generic [ref=e23]:
+        - generic [ref=e24]: Paid
+        - generic [ref=e25]: "00"
+  - generic [ref=e26]:
+    - generic [ref=e27]:
+      - button "All · 5" [ref=e28] [cursor=pointer]
+      - button "New · 0" [ref=e29] [cursor=pointer]
+      - button "Quoted · 0" [ref=e30] [cursor=pointer]
+      - button "Awaiting · 1" [ref=e31] [cursor=pointer]
+      - button "Approved · 1" [ref=e32] [cursor=pointer]
+      - button "In progress · 1" [ref=e33] [cursor=pointer]
+      - button "Review · 1" [ref=e34] [cursor=pointer]
+      - button "Delivered · 1" [ref=e35] [cursor=pointer]
+      - button "Paid · 0" [ref=e36] [cursor=pointer]
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - checkbox "Show paid" [ref=e39]
+        - text: Show paid
+      - combobox [ref=e40]:
+        - option "Recently touched" [selected]
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]: №
+      - generic [ref=e44]: Commission
+      - generic [ref=e45]: Stage
+    - generic [ref=e46]:
+      - article [ref=e47] [cursor=pointer]:
+        - generic [ref=e48]: "01"
+        - generic [ref=e49]:
+          - heading "Dark mode toggle for FlightApp" [level=3] [ref=e50]
+          - generic [ref=e51]: john_fiverr · Fiverr
+        - generic [ref=e54]: In progress
+      - article [ref=e55] [cursor=pointer]:
+        - generic [ref=e56]: "02"
+        - generic [ref=e57]:
+          - heading "Landing page redesign for SaaS dashboard" [level=3] [ref=e58]
+          - generic [ref=e59]: sarah_b_f · Fiverr
+        - generic [ref=e62]: Awaiting
+      - article [ref=e63] [cursor=pointer]:
+        - generic [ref=e64]: "03"
+        - generic [ref=e65]:
+          - heading "Mobile app icon set" [level=3] [ref=e66]
+          - generic [ref=e67]: devstack · Upwork
+        - generic [ref=e70]: Approved
+      - article [ref=e71] [cursor=pointer]:
+        - generic [ref=e72]: "04"
+        - generic [ref=e73]:
+          - heading "Logo vector cleanup" [level=3] [ref=e74]
+          - generic [ref=e75]: retail.co · Direct
+        - generic [ref=e78]: Review
